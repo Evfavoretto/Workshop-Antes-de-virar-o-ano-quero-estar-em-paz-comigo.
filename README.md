@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Antes de virar o ano — quero estar em paz comigo | Workshop</title>
-  <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 em paz." />
+  <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ocultar cabeçalhos do GitHub Pages, se aparecerem */
+    /* esconder cabeçalhos automáticos do GitHub Pages, se existirem */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
@@ -15,11 +15,11 @@
       --bg-soft:#EAF4FB;
       --blue-2:#B8E1FF;
       --blue-deep:#0F4C81;
-      --blue-dark:#072a49;
+      --blue-dark:#041f3a; /* azul bem escuro para faixas */
       --muted:#5A6571;
       --card:#FFFFFF;
       --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
-      --flag-height:10px; /* altura das faixas simples atrás dos títulos */
+      --section-flag-height:40px; /* altura maior para as faixas das seções */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -35,13 +35,13 @@
 
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;position:relative;z-index:1}
 
-    /* topo simples */
+    /* topo discreto */
     .topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-2),#89CFFD);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
     nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
 
-    /* HERO: quadro branco mais largo e elevado */
+    /* HERO: quadro branco largo */
     .hero{
       position:relative;
       border-radius:18px;
@@ -59,7 +59,7 @@
       overflow:visible;
     }
 
-    /* FAIXA azul escura (WORKSHOP) — trazida mais para centro/ esquerda */
+    /* FAIXA WORKSHOP — trazida mais à esquerda para alinhar com quadro branco */
     .hero-topbar{
       width:120%;
       background:var(--blue-dark);
@@ -67,13 +67,12 @@
       text-align:center;
       position:relative;
       z-index:3;
-      transform:translateX(3%); /* --- ajustado para 3% conforme encomenda */
+      transform:translateX(-3%); /* movida mais para a esquerda */
       border-top-left-radius:18px;
       border-top-right-radius:18px;
       box-shadow:none;
       border-bottom:none;
     }
-
     .hero-topbar h2{
       color:#fff;
       font-family:'Playfair Display',serif;
@@ -85,7 +84,7 @@
       letter-spacing:.02em;
     }
 
-    /* conteúdo abaixo da faixa */
+    /* Conteúdo abaixo da faixa */
     .hero-content{margin-top:22px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
     h1.title{
       font-family:'Playfair Display',serif;
@@ -100,23 +99,18 @@
     .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
     .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px;text-align:center}
 
-    /* se quiser reativar CTAs no futuro, espaço reservado */
-    .hero-ctas{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center;visibility:hidden}
-
-    /* sections gerais */
+    /* Sections geral */
     section{padding:52px 0}
-    .section-title-wrap{position:relative;margin-bottom:16px}
-    /* faixa simples atrás do título (full visual width) */
+    .section-title-wrap{position:relative;margin-bottom:16px;display:flex;align-items:center;justify-content:center}
     .section-flag{
-      position:absolute;left:50%;transform:translateX(-50%);top:50%;translate:none;
-      width:100%;height:var(--flag-height);background:var(--blue-deep);border-radius:6px;z-index:0;opacity:0.95;
-      max-width:calc(100% - 120px); /* deixa margens laterais */
+      position:absolute;left:50%;transform:translateX(-50%);
+      width:100%;height:var(--section-flag-height);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
+      max-width:calc(100% - 120px);
     }
-    .section-title{
-      position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:28px;color:var(--blue-deep);text-align:center;padding:8px 14px;margin:0 auto;display:inline-block;background:transparent;
-    }
+    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:28px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent;letter-spacing:0.01em}
+    /* note: section-title is white to stand on dark flag */
 
-    /* Objetivos: grid */
+    /* Objetivos: cards */
     .objectives{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px;margin:0 auto}
     .objective-card{background:#fff;border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
     .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
@@ -153,10 +147,10 @@
     .countdown-float .time{font-size:18px}
     .countdown-float .label{font-size:12px;opacity:.95;margin-top:6px}
 
-    /* WhatsApp flutuante (direita / baixo) */
+    /* WhatsApp flutuante */
     .whatsapp-float{position:fixed;right:18px;bottom:80px;background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer}
 
-    /* faixa final estreita full-width com texto de direitos */
+    /* faixa final estreita full-width */
     .copyright-band{
       width:100%;
       background:var(--blue-dark);
@@ -210,10 +204,10 @@
       </div>
     </main>
 
-    <!-- AS TRÊS NOITES (com faixa atrás do título) -->
+    <!-- AS TRÊS NOITES (faixa atrás do título) -->
     <section id="noites">
-      <div class="section-title-wrap">
-        <div class="section-flag" aria-hidden="true"></div>
+      <div class="section-title-wrap" aria-hidden="true">
+        <div class="section-flag"></div>
         <h2 class="section-title">As três noites</h2>
       </div>
 
@@ -224,10 +218,10 @@
       </div>
     </section>
 
-    <!-- OBJETIVOS (com faixa atrás do título) -->
+    <!-- OBJETIVOS (faixa atrás do título) -->
     <section id="objetivos">
       <div class="section-title-wrap">
-        <div class="section-flag" aria-hidden="true"></div>
+        <div class="section-flag"></div>
         <h2 class="section-title">Objetivos do Workshop</h2>
       </div>
 
@@ -240,7 +234,11 @@
 
     <!-- Mentor -->
     <section id="mentor">
-      <h2 class="section-title">Conheça seu mentor</h2>
+      <div class="section-title-wrap" style="margin-bottom:8px">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 class="section-title">Conheça seu mentor</h2>
+      </div>
+
       <div class="mentor" role="region" aria-label="Mentor">
         <img src="Mentor.jpeg" alt="Evandro Favoretto — mentor do workshop">
         <div class="bio">
@@ -253,7 +251,7 @@
     <!-- FAQ -->
     <section id="faq">
       <div class="section-title-wrap" style="margin-bottom:12px">
-        <div class="section-flag" aria-hidden="true"></div>
+        <div class="section-flag"></div>
         <h2 class="section-title">Perguntas Frequentes</h2>
       </div>
 
@@ -284,6 +282,7 @@
         </div>
       </div>
     </section>
+
   </div> <!-- /.wrap -->
 
   <!-- faixa final e copyright -->
@@ -293,14 +292,14 @@
 
   <footer aria-hidden="true">© 2025</footer>
 
-  <!-- contagem central-esquerda -->
+  <!-- contagem vertical-izquierda -->
   <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
     <div class="label">02 Dez • 20h</div>
   </div>
 
-  <!-- whatsapp flutuante -->
+  <!-- botão WhatsApp -->
   <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
 
   <script>
@@ -308,14 +307,14 @@
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
 
-    // FAQ: abrir/fechar (clique e teclado)
+    // FAQ interativo: clicando no item abre/fecha; teclado: Enter/Space
     document.querySelectorAll('.faq-item').forEach(item=>{
       function toggle(){ item.classList.toggle('open'); }
       item.addEventListener('click', toggle);
       item.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); } });
     });
 
-    // contagem regressiva (02 Dez 2025 20:00 local)
+    // Contagem regressiva (02 Dez 2025 20:00 local)
     const targetDate = new Date(2025,11,2,20,0,0);
     function updateCountdown(){
       const now = new Date();
@@ -327,7 +326,7 @@
       diff -= days * (1000*60*60*24);
       const hours = Math.floor(diff / (1000*60*60));
       diff -= hours * (1000*60*60);
-      const minutes = Math.floor(diff / (1000*60)) ;
+      const minutes = Math.floor(diff / (1000*60));
       diff -= minutes * (1000*60);
       const seconds = Math.floor(diff / 1000);
       el.textContent = `${days}d — ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
