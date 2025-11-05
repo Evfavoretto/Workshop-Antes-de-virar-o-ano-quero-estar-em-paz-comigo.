@@ -1,224 +1,249 @@
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Antes de virar o ano — quero estar em paz comigo | Workshop gratuito</title>
-  <meta name="description" content="Três noites (2, 3 e 4 de dezembro, às 20h) para encerrar 2025 com leveza: soltar o que pesa e se reencontrar consigo mesma." />
-  <!-- Open Graph -->
+  <meta name="description" content="Três noites (2, 3 e 4 de dezembro, às 20h) para encerrar 2025 com leveza e entrar em 2026 em paz." />
   <meta property="og:title" content="Antes de virar o ano — quero estar em paz comigo" />
   <meta property="og:description" content="Três noites para encerrar 2025 com leveza e se reencontrar consigo mesma. 2, 3 e 4 de dezembro • 20h" />
   <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Antes+de+virar+o+ano" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* 🔧 Oculta o cabeçalho padrão do GitHub Pages (remove o título azul no topo) */
-    header, .page-header, .site-header, .project-name, .project-tagline {
-      display: none !important;
-    }
+    /* Remove cabeçalho do GitHub Pages */
+    header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
+    /* ===== VARIÁVEIS (altere aqui para personalizar cores/título) ===== */
     :root{
-      /* ====== personalização de cores — altere aqui ======
-         --bg-soft: fundo geral
-         --accent-1: cor principal (título / CTA)
-         --accent-2: cor secundária (gradiente)
-         --card: cor dos cards
-      =================================================== */
-      --bg-soft: #FFF7F2;        /* fundo suave (creme claro) */
-      --accent-1: #8B5CF6;       /* violeta suave, chama atenção sem agredir */
-      --accent-2: #FF8A65;       /* pêssego para contraste quente */
-      --card: #FFFFFF;
-      --muted: #6B7280;
-      --ink: #0F1724;
-      --radius: 14px;
-      --maxw: 1200px;
-      --hero-title-size: clamp(38px, 8.8vw, 110px); /* TITULO BEM GRANDE e responsivo */
+      --bg:#FFF8F4;                 /* fundo suave */
+      --hero-grad-1:#7C3AED;        /* violeta profundo */
+      --hero-grad-2:#FF6B6B;        /* coral quente */
+      --accent:#FF6B6B;
+      --muted:#6B7280;
+      --card:#FFFFFF;
+      --ink:#0B1220;
+      --radius:18px;
+      --maxw:1200px;
+      --hero-title: clamp(44px, 8.6vw, 120px); /* título grande e responsivo */
+      --glass: rgba(11,18,32,0.04);
+      --easing: cubic-bezier(.2,.9,.3,1);
     }
-
+    /* ===== reset simples ===== */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg-soft),#FFF2E8 60%);
-      color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;
+      background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;line-height:1.5;
     }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:36px 20px}
 
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-family:'Playfair Display',serif;font-size:20px}
-    .brand .title{font-family:'Playfair Display',serif;font-size:15px;margin:0}
-    nav{font-weight:600;color:var(--muted);font-size:15px}
-    nav a{color:var(--muted);margin-left:18px}
+    /* ===== topbar ===== */
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:64px;height:64px;border-radius:14px;
+      background:linear-gradient(135deg,var(--hero-grad-1),var(--hero-grad-2));
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-family:'Playfair Display',serif;
+      box-shadow:0 10px 30px rgba(11,18,32,0.12);
+    }
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;margin-left:18px}
 
-    /* HERO */
+    /* ===== HERO dramático ===== */
     .hero{
-      margin:12px 0 10px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
-      border-radius:20px;padding:40px;border:1px solid rgba(0,0,0,0.04);
-      box-shadow:0 18px 50px rgba(15,23,36,0.05);
+      margin:18px 0 28px;border-radius:20px;overflow:hidden;position:relative;
+      background:linear-gradient(135deg, rgba(124,58,237,0.09), rgba(255,107,107,0.06));
+      padding:44px;
       display:grid;grid-template-columns:1fr;gap:18px;align-items:center;
+      box-shadow:0 30px 60px rgba(11,18,32,0.06);
     }
-    @media(min-width:980px){.hero{grid-template-columns:1fr 420px;padding:48px}}
+    @media(min-width:980px){ .hero{grid-template-columns:1fr 420px;padding:56px} }
 
-    .kicker{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
-    .headline-small{font-weight:800;color:var(--accent-1);font-size:14px;margin-bottom:8px}
-    h1{font-family:'Playfair Display',serif;font-size:var(--hero-title-size);line-height:1;margin:0 0 10px;color:var(--accent-1); /* título destacado em accent-1 */ }
-    .lead{color:var(--muted);font-size:18px;max-width:820px;margin-bottom:12px}
+    .hero-kicker{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.6);font-weight:800;color:var(--accent);font-size:13px}
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:var(--hero-title);
+      line-height:0.95;
+      margin:18px 0 10px;
+      color:linear-gradient(90deg,var(--hero-grad-1),var(--hero-grad-2));
+      background:linear-gradient(90deg,var(--hero-grad-1),var(--hero-grad-2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-wrap:balance;
+      text-shadow:0 6px 20px rgba(124,58,237,0.08);
+    }
+    .hero-sub{font-size:18px;color:var(--muted);max-width:740px;margin-bottom:18px}
 
-    .dates{display:inline-block;background:linear-gradient(90deg, rgba(139,92,246,0.06), rgba(255,138,101,0.06));padding:8px 12px;border-radius:999px;color:var(--accent-1);font-weight:700;margin-bottom:12px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:12px;border:0;font-weight:800;cursor:pointer;
+      transition:transform .16s var(--easing),box-shadow .16s var(--easing);
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--hero-grad-1),var(--hero-grad-2));color:#fff;box-shadow:0 14px 34px rgba(124,58,237,0.12)}
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{background:transparent;border:1px solid rgba(11,18,32,0.06);color:var(--muted)}
 
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{border-radius:12px;padding:12px 18px;font-weight:800;font-size:15px;cursor:pointer;border:0;box-shadow:0 10px 30px rgba(2,8,23,0.06);transition:transform .16s}
-    .btn:active{transform:translateY(1px)}
-    .btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff}
-    .btn-ghost{background:transparent;border:1px solid rgba(15,23,36,0.06);color:var(--muted)}
+    .hero-panel{
+      background:linear-gradient(180deg,rgba(255,255,255,0.8),#fff);
+      border-radius:14px;padding:18px;border:1px solid var(--glass);
+      box-shadow:0 12px 30px rgba(11,18,32,0.06);
+    }
+    .hero-meta{font-weight:700;color:var(--ink);margin-bottom:6px}
+    .hero-small{color:var(--muted);font-size:13px}
 
-    .hero-right{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(0,0,0,0.03)}
-    .mini{font-size:13px;color:var(--muted);margin-bottom:8px}
-    .count{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:6px}
-    .meta{font-weight:700;color:var(--muted);margin-bottom:6px}
+    /* SVG accent */
+    .hero .accent-blob{position:absolute;right:-120px;top:-40px;opacity:.14;filter:blur(24px);transform:rotate(12deg);pointer-events:none}
 
-    /* Sections */
-    section{padding:46px 0;border-top:1px solid rgba(0,0,0,0.03)}
-    .section-title{font-family:'Playfair Display',serif;font-size:26px;margin:0 0 12px;text-align:center;color:var(--ink)}
+    /* ===== PROBLEMA / SOLUÇÃO ===== */
+    .ps{display:grid;gap:20px;margin-top:24px}
+    @media(min-width:900px){ .ps{grid-template-columns:1fr 1fr} }
+    .ps-card{background:var(--card);padding:24px;border-radius:14px;border:1px solid var(--glass);box-shadow:0 14px 36px rgba(11,18,32,0.04)}
+    .ps-card h3{margin:0 0 10px;color:var(--hero-grad-1);font-size:20px}
+    .ps-card p{color:var(--muted);font-size:16px;white-space:pre-line}
 
-    /* problem + solution cards */
-    .ps-grid{display:grid;gap:18px;align-items:stretch}
-    @media(min-width:900px){.ps-grid{grid-template-columns:1fr 1fr}}
-    .ps-card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
-    .ps-card h3{margin:0 0 10px;color:var(--accent-1);font-size:20px}
-    .ps-card p{color:var(--muted);margin:0;font-size:16px;white-space:pre-line}
-
-    /* Three nights cards */
+    /* ===== TRÊS NOITES ===== */
     .grid-3{display:grid;gap:18px;margin-top:6px}
-    @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
-    .card h3{font-size:18px;margin:0 0 10px;color:var(--accent-1)}
-    .card p{color:var(--muted);margin:6px 0 0;white-space:pre-line}
+    @media(min-width:860px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid var(--glass);box-shadow:0 10px 30px rgba(11,18,32,0.03)}
+    .card h4{margin:0 0 10px;font-size:18px;color:var(--hero-grad-1)}
+    .card p{color:var(--muted);white-space:pre-line}
 
-    /* benefits */
-    .benefits{display:grid;gap:10px;max-width:920px;margin:10px auto 0}
-    .benefits ul{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;list-style:none;padding:0;margin:0}
-    @media(max-width:720px){.benefits ul{grid-template-columns:1fr}}
-    .benefits li{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.03);display:flex;gap:12px;align-items:center}
-    .icon-square{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+    /* ===== BENEFÍCIOS ===== */
+    .benefits{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+    .benefit{background:linear-gradient(90deg,#fff,#fff);border-radius:10px;padding:12px 14px;border:1px solid var(--glass);display:flex;gap:10px;align-items:center;min-width:220px}
+    .badge{width:40px;height:40px;border-radius:10px;background:linear-gradient(90deg,var(--hero-grad-1),var(--hero-grad-2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
 
-    /* FAQ */
-    .faq-wrap{max-width:1000px;margin:6px auto 0}
-    .faq-controls{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
-    .faq-search input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:transparent;color:var(--ink)}
-    .chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(0,0,0,0.04);cursor:pointer;color:var(--muted)}
-    .chip.active{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;border-color:transparent}
+    /* ===== FAQ elegante ===== */
+    .faq{margin-top:26px;display:grid;gap:12px}
+    .faq-item{border-radius:12px;border:1px solid var(--glass);overflow:hidden;background:var(--card);box-shadow:0 8px 20px rgba(11,18,32,0.03)}
+    .faq-q{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+    .faq-q h5{margin:0;font-size:16px}
+    .faq-a{max-height:0;overflow:hidden;padding:0 16px;transition:max-height .32s var(--easing)}
+    .faq-item.open .faq-a{max-height:400px;padding:14px 16px}
+    .faq-a p{margin:0;color:var(--muted)}
 
-    .faq-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    @media(max-width:980px){.faq-grid{grid-template-columns:1fr}}
-    .faq-card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
-    .faq-q{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
-    .faq-q h4{margin:0;font-size:16px;color:var(--ink)}
-    .faq-q p{margin:6px 0 0;color:var(--muted);font-size:14px}
-    .faq-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-
-    .answer{max-height:0;overflow:hidden;transition:max-height .28s ease;padding:0 2px}
-    .faq-card.open .answer{max-height:320px;padding-top:12px}
-
-    .faq-idx{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
-    .faq-idx h5{margin:0 0 8px;font-size:15px;color:var(--ink)}
-    .faq-idx ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-    .faq-idx li{cursor:pointer;padding:8px;border-radius:8px;color:var(--muted);border:1px solid transparent}
-    .faq-idx li:hover{background:rgba(0,0,0,0.02);color:var(--ink);border-color:rgba(0,0,0,0.03)}
-
-    /* form */
-    .form-card{max-width:760px;margin:10px auto;padding:20px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04)}
-    .form-row{display:grid;gap:8px}
+    /* ===== FORM ===== */
+    .form-card{max-width:760px;margin:18px auto;padding:22px;border-radius:12px;background:var(--card);border:1px solid var(--glass)}
+    .form-row{display:grid;gap:12px}
     @media(min-width:720px){.form-row{grid-template-columns:1fr 260px}}
-    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px;font-weight:700}
-    input[type="text"], input[type="email"]{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:transparent;color:var(--ink);outline:none;font-size:15px}
-    .form-foot{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:12px}
-    .small{font-size:13px;color:var(--muted);}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:700}
+    input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--glass);background:transparent;color:var(--ink);font-size:15px;outline:none}
+    .form-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+    .note{font-size:13px;color:var(--muted)}
 
-    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
-    a:focus, button:focus, input:focus{outline:3px solid rgba(139,92,246,0.14);outline-offset:3px;border-radius:6px}
-    .muted-small{color:var(--muted);font-size:14px}
+    /* ===== FOOTER ===== */
+    footer{margin-top:28px;padding:36px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* small responsive tweaks */
+    @media(max-width:520px){ .logo{width:52px;height:52px} .hero-panel{display:none} .hero{padding:28px} }
+    /* focus */
+    :focus{outline:3px solid rgba(124,58,237,0.12);outline-offset:3px;border-radius:8px}
   </style>
 </head>
 <body>
-  <div class="wrap" role="document">
-    <!-- top -->
-    <header class="topbar" aria-label="Cabeçalho do site">
+  <div class="wrap">
+    <!-- TOP -->
+    <header class="topbar" aria-label="Cabeçalho">
       <div class="brand">
         <div class="logo" aria-hidden="true">⚖️</div>
         <div>
-          <div class="title">Antes de virar o ano</div>
+          <div style="font-weight:800;font-family:'Playfair Display',serif">Antes de virar o ano</div>
           <div style="font-size:13px;color:var(--muted)">Workshop gratuito • 3 noites</div>
         </div>
       </div>
-      <nav aria-label="Navegação principal">
-        <a href="#noites">Noites</a>
+      <nav aria-label="Navegação">
         <a href="#problema">Problema</a>
-        <a href="#solucao">Solução</a>
+        <a href="#noites">Noites</a>
+        <a href="#faq">Perguntas</a>
         <a href="#inscricao">Inscrição</a>
       </nav>
     </header>
 
-    <!-- hero -->
-    <main class="hero" role="main" aria-labelledby="main-title">
+    <!-- HERO -->
+    <main class="hero" role="main" aria-labelledby="hero-title">
       <div>
-        <div class="headline-small">Workshop Gratuito:</div>
-        <!-- TÍTULO BEM GRANDE E DESTACADO -->
-        <h1 id="main-title">Antes de virar o ano, quero estar em paz comigo.</h1>
+        <div class="hero-kicker">Workshop Gratuito</div>
 
-        <!-- subtítulo com datas + descrição -->
-        <div class="dates">Dias 2, 3 e 4 de dezembro • às 20h</div>
-        <p class="lead">Três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes do novo ciclo começar.</p>
+        <!-- TITULO BEM GRANDE -->
+        <h1 id="hero-title" class="hero-title">Antes de virar o ano, quero estar em paz comigo.</h1>
 
-        <div class="hero-cta" role="group" aria-label="Ações principais">
+        <!-- datas e descrição -->
+        <div class="hero-sub">Dias 2, 3 e 4 de dezembro • às 20h — três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar antes de entrar em 2026.</div>
+
+        <!-- CTA -->
+        <div class="cta-row" style="margin-top:18px">
           <button class="btn btn-primary" onclick="document.getElementById('inscricao').scrollIntoView({behavior:'smooth'})">Inscrever-se grátis</button>
           <a class="btn btn-ghost" href="#noites">Ver as noites</a>
         </div>
+
+        <!-- mini benefícios -->
+        <div style="margin-top:18px" class="benefits" aria-hidden="false">
+          <div class="benefit"><div class="badge">✓</div><div><strong>3 noites</strong><div style="color:var(--muted)">práticas e acolhedoras</div></div></div>
+          <div class="benefit"><div class="badge">★</div><div><strong>Ritual</strong><div style="color:var(--muted)">para entrar em 2026</div></div></div>
+        </div>
       </div>
 
-      <aside class="hero-right" aria-label="Resumo do evento">
-        <div class="mini">Próximo encontro</div>
-        <div class="count">02 Dez • 20h</div>
-        <div class="mini">Duração por noite</div>
-        <div class="meta">60 — 75 minutos</div>
-        <div class="mini">Vagas</div>
-        <div class="muted-small">Gratuito — inscrição necessária</div>
+      <!-- painel lateral -->
+      <aside class="hero-panel" aria-label="Resumo do evento">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:13px;color:var(--muted)">Próximo encontro</div>
+          <div style="font-weight:800;font-size:20px;color:var(--ink)">02 Dez • 20h</div>
+          <div style="height:1px;background:var(--glass);margin:8px 0;border-radius:4px"></div>
+          <div style="font-size:13px;color:var(--muted)">Duração</div>
+          <div style="font-weight:700;color:var(--ink)">60–75 minutos / noite</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:8px">Gratuito — inscrição necessária</div>
+          <div style="margin-top:12px">
+            <button class="btn btn-primary" style="width:100%" onclick="document.getElementById('inscricao').scrollIntoView({behavior:'smooth'})">Quero participar</button>
+          </div>
+        </div>
       </aside>
+
+      <!-- decorative SVG blob -->
+      <svg class="accent-blob" width="520" height="520" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#FF6B6B"/></linearGradient>
+        </defs>
+        <path d="M420 60C470 120 500 220 440 300C380 380 260 420 180 380C100 340 60 220 120 140C180 60 320 0 420 60Z" fill="url(#g)" />
+      </svg>
     </main>
 
     <!-- PROBLEMA / SOLUÇÃO -->
-    <section id="problema" aria-labelledby="prob-title">
-      <h2 id="prob-title" class="section-title">O problema que a maioria enfrenta</h2>
-      <div class="ps-grid" style="margin-top:12px">
+    <section id="problema" style="margin-top:6px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <h2 class="section-title" style="margin:0">O problema que a maioria enfrenta</h2>
+        <div style="color:var(--muted);font-size:14px">Se isso ressoa, você está no lugar certo.</div>
+      </div>
+
+      <div class="ps" style="margin-top:18px">
         <div class="ps-card">
           <h3>Você não está sozinha nisso</h3>
           <p>
-Muitas pessoas chegam ao fim do ano carregando cansaço emocional, culpa por não ter sido “suficiente”, mágoas antigas e a sensação de que o tempo passou sem que elas tivessem cuidado de si.
-Isso cria ansiedade, noites sem sono e um peso constante que impede um recomeço com leveza.
+Muitas pessoas chegam ao fim do ano carregando cansaço emocional, culpa por não ter sido “suficiente”, mágoas antigas e a sensação de que o tempo passou sem que tenham cuidado de si.
+Isso gera ansiedade, noites sem sono e um peso constante que bloqueia um recomeço leve e consciente.
           </p>
         </div>
 
-        <div class="ps-card" id="solucao" aria-labelledby="sol-title">
-          <h3 id="sol-title">A solução — por onde começar</h3>
+        <div class="ps-card">
+          <h3>A solução: um lugar para fechar com paz</h3>
           <p>
 Entrar em um espaço guiado, curto e seguro onde você possa:
-• nomear o que pesa,
-• aprender práticas para soltar com cuidado,
-• e transformar experiência em intenção para o próximo ciclo.
-O Workshop é exatamente isso: três noites práticas e acolhedoras que ajudam você a fechar 2025 com paz e entrar em 2026 mais leve.
+• dar nome ao que pesa;
+• aprender práticas para soltar com cuidado;
+• transformar experiência em intenção para o próximo ciclo.
+
+O Workshop é exatamente isso: três noites práticas e acolhedoras para fechar 2025 e chegar em 2026 mais leve.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- tres noites (com o texto exato pedido) -->
-    <section id="noites" aria-labelledby="noites-title">
-      <h2 id="noites-title" class="section-title">As três noites</h2>
+    <!-- TRÊS NOITES -->
+    <section id="noites" style="margin-top:6px">
+      <h2 class="section-title">As três noites</h2>
       <div class="grid-3" style="margin-top:18px">
         <article class="card" aria-labelledby="n1">
-          <h3 id="n1">🌙 1ª Noite — O peso que ainda carrego</h3>
+          <h4 id="n1">🌙 1ª Noite — O peso que ainda carrego</h4>
           <p>
 Reconheça o que está tirando sua paz.
 Mágoas, culpas e cobranças que já não cabem mais.
@@ -227,7 +252,7 @@ O primeiro passo pra se libertar é dar nome ao que dói.
         </article>
 
         <article class="card" aria-labelledby="n2">
-          <h3 id="n2">💚 2ª Noite — Quando soltar é a forma mais sincera de cuidar</h3>
+          <h4 id="n2">💚 2ª Noite — Quando soltar é a forma mais sincera de cuidar</h4>
           <p>
 Aprenda a soltar o controle e a cuidar de si com verdade.
 Descubra que força também é confiar, pausar e permitir-se descansar.
@@ -235,7 +260,7 @@ Descubra que força também é confiar, pausar e permitir-se descansar.
         </article>
 
         <article class="card" aria-labelledby="n3">
-          <h3 id="n3">✨ 3ª Noite — O recomeço que nasce da paz</h3>
+          <h4 id="n3">✨ 3ª Noite — O recomeço que nasce da paz</h4>
           <p>
 Transforme o que viveu em sabedoria e escolha recomeçar leve.
 Defina suas intenções para 2026 em um ritual de paz e renascimento.
@@ -244,124 +269,41 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.
       </div>
     </section>
 
-    <!-- beneficios -->
-    <section id="beneficios" aria-labelledby="benef-title">
-      <h2 id="benef-title" class="section-title">O que você vai levar</h2>
-      <div class="benefits" style="margin-top:14px">
-        <ul>
-          <li><div class="icon-square">1</div><div><strong>Clareza</strong><div style="color:var(--muted)">Sobre o que deixar para trás</div></div></li>
-          <li><div class="icon-square">2</div><div><strong>Ferramentas</strong><div style="color:var(--muted)">Práticas simples de autocuidado</div></div></li>
-          <li><div class="icon-square">3</div><div><strong>Ritual</strong><div style="color:var(--muted)">Ritual prático para definir intenções</div></div></li>
-          <li><div class="icon-square">4</div><div><strong>Leveza</strong><div style="color:var(--muted)">Mais paz emocional para 2026</div></div></li>
-        </ul>
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" style="margin-top:18px">
+      <h2 class="section-title">O que você vai levar</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div class="benefit"><div class="badge">1</div><div><strong>Clareza</strong><div style="color:var(--muted)">sobre o que soltar</div></div></div>
+        <div class="benefit"><div class="badge">2</div><div><strong>Práticas</strong><div style="color:var(--muted)">simples de autocuidado</div></div></div>
+        <div class="benefit"><div class="badge">3</div><div><strong>Ritual</strong><div style="color:var(--muted)">para intenção de 2026</div></div></div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title">Perguntas frequentes</h2>
-
-      <div class="faq-wrap" role="region" aria-live="polite">
-        <div class="faq-controls" style="margin-bottom:12px">
-          <div class="faq-search">
-            <input id="faqSearch" type="search" placeholder="Buscar perguntas (ex.: gravação, gratuito, vagas)" aria-label="Buscar perguntas"/>
-          </div>
-          <div class="faq-filter" aria-hidden="true">
-            <button class="chip active" data-filter="all">Todas</button>
-            <button class="chip" data-filter="logistica">Logística</button>
-            <button class="chip" data-filter="conteudo">Conteúdo</button>
-            <button class="chip" data-filter="tecnico">Técnico</button>
-          </div>
+    <section id="faq" style="margin-top:18px">
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq" aria-live="polite" style="margin-top:12px">
+        <!-- item -->
+        <div class="faq-item" data-key="participar">
+          <div class="faq-q" role="button" tabindex="0"><h5>Preciso participar das três noites?</h5></div>
+          <div class="faq-a"><p>Acompanhar as três noites traz mais sentido ao processo, mas é possível participar de noites avulsas se necessário.</p></div>
         </div>
-
-        <div class="faq-grid">
-          <div class="faq-list" id="faqList">
-            <!-- items -->
-            <div class="faq-card" data-tags="logistica">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">Q</div>
-                <div>
-                  <h4>Preciso participar das três noites?</h4>
-                  <p>Recomendamos acompanhar o ciclo completo, mas você pode participar de noites isoladas se necessário.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">Acompanhar as três noites dá mais sentido ao processo — cada encontro constrói o seguinte. Se faltar uma, não se preocupe: você ainda será bem-vinda nas demais.</div></div>
-            </div>
-
-            <div class="faq-card" data-tags="conteudo">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">C</div>
-                <div>
-                  <h4>O que vou vivenciar em cada noite?</h4>
-                  <p>Resumo prático dos focos das três noites.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">1ª noite: reconhecimento das feridas e pesos. 2ª noite: práticas de soltura e autocuidado. 3ª noite: ritual de encerramento e definição de intenções.</div></div>
-            </div>
-
-            <div class="faq-card" data-tags="tecnico">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">T</div>
-                <div>
-                  <h4>É online e haverá gravação?</h4>
-                  <p>O evento é online; gravações podem ser disponibilizadas.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">As gravações geralmente ficam disponíveis por tempo limitado. Inscreva-se para receber o link quando for liberado.</div></div>
-            </div>
-
-            <div class="faq-card" data-tags="logistica">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">V</div>
-                <div>
-                  <h4>Como garanto minha vaga?</h4>
-                  <p>Preencha o formulário de inscrição — enviaremos avisos por WhatsApp.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">A inscrição confirma seu interesse e garante que receba instruções e lembretes antes de cada encontro.</div></div>
-            </div>
-
-            <div class="faq-card" data-tags="conteudo">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">P</div>
-                <div>
-                  <h4>Preciso participar ao vivo?</h4>
-                  <p>Participar ao vivo é recomendado para a experiência completa.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">Ao vivo você vive as práticas e troca em tempo real; ainda assim, quem não puder terá a opção de ver a gravação quando disponível.</div></div>
-            </div>
-
-            <div class="faq-card" data-tags="tecnico">
-              <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
-                <div class="faq-icon">A</div>
-                <div>
-                  <h4>É cobrado algum valor?</h4>
-                  <p>Não — o workshop é 100% gratuito.</p>
-                </div>
-              </div>
-              <div class="answer" aria-hidden="true"><div class="muted-small">Sem custos. Apenas pedimos presença e abertura para a experiência.</div></div>
-            </div>
-          </div>
-
-          <aside class="faq-idx" aria-label="Índice de perguntas">
-            <h5>Atalhos rápidos</h5>
-            <ul>
-              <li data-jump="Como garanto minha vaga?">Como garanto minha vaga?</li>
-              <li data-jump="É online e haverá gravação?">Gravações</li>
-              <li data-jump="É cobrado algum valor?">Gratuito</li>
-              <li data-jump="Preciso participar das três noites?">Participação</li>
-            </ul>
-          </aside>
+        <div class="faq-item" data-key="gravação">
+          <div class="faq-q" role="button" tabindex="0"><h5>Haverá gravação?</h5></div>
+          <div class="faq-a"><p>As gravações podem ficar disponíveis por tempo limitado — inscreva-se para receber avisos por WhatsApp.</p></div>
+        </div>
+        <div class="faq-item" data-key="gratuito">
+          <div class="faq-q" role="button" tabindex="0"><h5>É gratuito?</h5></div>
+          <div class="faq-a"><p>Sim — o workshop é 100% gratuito.</p></div>
         </div>
       </div>
     </section>
 
     <!-- INSCRIÇÃO -->
-    <section id="inscricao" aria-labelledby="insc-title">
-      <h2 id="insc-title" class="section-title">Reserve seu lugar — é grátis</h2>
-      <div class="form-card" role="form" aria-label="Formulário de inscrição">
-        <form id="signup" onsubmit="return handleSignup(event)">
+    <section id="inscricao" style="margin-top:26px">
+      <h2 class="section-title">Reserve seu lugar — é grátis</h2>
+      <div class="form-card" role="form" aria-label="Formulário de inscrição" style="margin-top:12px">
+        <form id="signup" onsubmit="return handleSignup(event)" autocomplete="on">
           <div class="form-row">
             <div>
               <label for="nome">Nome completo</label>
@@ -376,9 +318,8 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.
             <label for="email">E-mail (opcional)</label>
             <input id="email" name="email" type="email" placeholder="seu@exemplo.com" />
           </div>
-
           <div class="form-foot">
-            <div class="small">Você receberá confirmação por WhatsApp.</div>
+            <div class="note">Você receberá confirmação e lembretes por WhatsApp.</div>
             <button type="submit" class="btn btn-primary">Confirmar inscrição</button>
           </div>
         </form>
@@ -392,91 +333,35 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.
   </div>
 
   <script>
-    // FAQ interatividade (toggle, busca, filtros, índice)
+    // FAQ: accessible toggle (um aberto por vez)
     (function(){
-      const faqList = document.getElementById('faqList');
-      const cards = Array.from(faqList.querySelectorAll('.faq-card'));
-      const search = document.getElementById('faqSearch');
-      const chips = Array.from(document.querySelectorAll('.chip'));
-      const idx = document.querySelectorAll('.faq-idx li');
-
-      function toggleCard(card){
-        const isOpen = card.classList.toggle('open');
-        const q = card.querySelector('.faq-q');
-        const ans = card.querySelector('.answer');
-        q.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        ans.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-        if(isOpen){
-          cards.forEach(c => { if(c !== card){ c.classList.remove('open'); c.querySelector('.faq-q').setAttribute('aria-expanded','false'); c.querySelector('.answer').setAttribute('aria-hidden','true'); }});
+      const items = Array.from(document.querySelectorAll('.faq-item'));
+      items.forEach(item=>{
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        q.addEventListener('click', ()=> toggle(item));
+        q.addEventListener('keydown', (e)=> { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(item); }});
+        function toggle(current){
+          const isOpen = current.classList.toggle('open');
+          items.forEach(i => { if(i!==current) i.classList.remove('open'); });
         }
-      }
-
-      cards.forEach(card=>{
-        const q = card.querySelector('.faq-q');
-        q.addEventListener('click', ()=> toggleCard(card));
-        q.addEventListener('keydown', (e)=>{
-          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleCard(card); }
-        });
-      });
-
-      function filterFAQs(term, tag){
-        const t = term.trim().toLowerCase();
-        cards.forEach(card=>{
-          const text = (card.innerText || '').toLowerCase();
-          const tags = (card.dataset.tags || '').toLowerCase();
-          const matchesText = !t || text.includes(t);
-          const matchesTag = !tag || tag === 'all' || tags.includes(tag);
-          card.style.display = (matchesText && matchesTag) ? '' : 'none';
-        });
-      }
-
-      if(search){
-        search.addEventListener('input', ()=> {
-          const term = search.value;
-          const active = chips.find(c => c.classList && c.classList.contains('active')) || {dataset:{filter:'all'}};
-          filterFAQs(term, active.dataset.filter);
-        });
-      }
-
-      chips.forEach(ch=>{
-        ch.addEventListener('click', ()=>{
-          chips.forEach(c=>c.classList.remove('active'));
-          ch.classList.add('active');
-          const tag = ch.dataset.filter;
-          filterFAQs(search.value || '', tag);
-        });
-      });
-
-      idx.forEach(li=>{
-        li.addEventListener('click', ()=>{
-          const q = li.dataset.jump || li.innerText;
-          const match = cards.find(c => c.innerText.toLowerCase().includes(q.toLowerCase()));
-          if(match){
-            match.scrollIntoView({behavior:'smooth', block:'center'});
-            if(!match.classList.contains('open')) toggleCard(match);
-          }
-        });
       });
     })();
 
-    // Form: abre WhatsApp com mensagem pré-preenchida
+    // Form opens WhatsApp with message - altere waNumber para o número oficial (formato +5511...)
     function handleSignup(e){
       e.preventDefault();
       const nome = document.getElementById('nome').value.trim();
       const email = document.getElementById('email').value.trim();
       const wa = document.getElementById('wa').value.trim();
-
-      // === ATENÇÃO: Substitua abaixo pelo número de destino (formato internacional, sem sinais)
-      // Ex.: const waNumber = '+5511999999999';
-      const waNumber = '+55419998110445'; // placeholder — troque para o número/WhatsApp oficial
-
+      const waNumber = '+55419998110445'; // <<----- substitua pelo número oficial (internacional)
       let msg = `Quero participar do workshop "Antes de virar o ano, quero estar em paz comigo." - Nome: ${nome}`;
-      if(email) msg += `; E-mail: ${email}`;
+      if(email) msg += `; Email: ${email}`;
       if(wa) msg += `; WhatsApp: ${wa}`;
       msg += ' — Inscrição via site.';
       const encoded = encodeURIComponent(msg);
       const url = `https://wa.me/${waNumber.replace(/\D/g,'')}?text=${encoded}`;
-      window.open(url,'_blank');
+      window.open(url, '_blank');
       return false;
     }
   </script>
