@@ -3,33 +3,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Antes de virar o ano — quero estar em paz comigo | Workshop gratuito</title>
-  <meta name="description" content="Três noites (2, 3 e 4 de dezembro, às 20h) para encerrar 2024 com leveza: soltar o que pesa e se reencontrar consigo mesma." />
+  <meta name="description" content="Três noites (2, 3 e 4 de dezembro, às 20h) para encerrar 2025 com leveza: soltar o que pesa e se reencontrar consigo mesma." />
   <!-- Open Graph -->
   <meta property="og:title" content="Antes de virar o ano — quero estar em paz comigo" />
-  <meta property="og:description" content="Três noites para encerrar 2024 com leveza e se reencontrar consigo mesma. 2, 3 e 4 de dezembro • 20h" />
+  <meta property="og:description" content="Três noites para encerrar 2025 com leveza e se reencontrar consigo mesma. 2, 3 e 4 de dezembro • 20h" />
   <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Antes+de+virar+o+ano" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* 🔧 Oculta o cabeçalho padrão do GitHub Pages (resolve seu título azul no topo) */
+    /* 🔧 Oculta o cabeçalho padrão do GitHub Pages (remove o título azul no topo) */
     header, .page-header, .site-header, .project-name, .project-tagline {
       display: none !important;
     }
 
     :root{
-      /* paleta suave e chamativa - altere aqui */
-      --bg-1: #FFF9F6;        /* creme principal */
-      --bg-2: #FFF3EA;        /* gradiente suave */
-      --accent-1: #C94A7A;    /* rosa quente */
-      --accent-2: #0EA37C;    /* verde suave */
-      --card: #FFFFFF;        /* cards */
-      --muted: #6B7280;       /* texto secundário */
-      --ink: #0F1724;         /* texto principal */
-      --glass: rgba(15,23,36,0.04);
+      --bg-1: #FFF9F6;
+      --bg-2: #FFF3EA;
+      --accent-1: #C94A7A;
+      --accent-2: #0EA37C;
+      --card: #FFFFFF;
+      --muted: #6B7280;
+      --ink: #0F1724;
       --radius: 14px;
-      --shadow: 0 18px 50px rgba(15,23,36,0.07);
-      --maxw: 1100px;
+      --maxw: 1200px;
+      --hero-title-size: clamp(36px, 6.8vw, 86px); /* grande e responsivo */
     }
 
     *{box-sizing:border-box}
@@ -37,20 +35,13 @@
     body{
       margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
       background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
-      color:var(--ink);-webkit-font-smoothing:antialiased;
-      -webkit-text-size-adjust:100%;
-      line-height:1.5;
+      color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;
     }
 
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
-    /* Topbar */
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;
-      font-family:'Playfair Display',serif;font-size:20px;box-shadow:0 8px 22px rgba(0,0,0,0.08)
-    }
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-family:'Playfair Display',serif;font-size:20px}
     .brand .title{font-family:'Playfair Display',serif;font-size:15px;margin:0}
     nav{font-weight:600;color:var(--muted);font-size:15px}
     nav a{color:var(--muted);margin-left:18px}
@@ -58,48 +49,41 @@
     /* HERO */
     .hero{
       margin:12px 0 30px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9));
-      border-radius:20px;padding:34px;border:1px solid rgba(0,0,0,0.04);
-      box-shadow:var(--shadow);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      border-radius:20px;padding:36px;border:1px solid rgba(0,0,0,0.04);
+      box-shadow:0 18px 50px rgba(15,23,36,0.06);
       display:grid;grid-template-columns:1fr;gap:18px;align-items:center;
     }
-    @media(min-width:960px){.hero{grid-template-columns:1fr 420px;padding:40px}}
+    @media(min-width:980px){.hero{grid-template-columns:1fr 420px;padding:44px}}
 
     .kicker{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
-    h1{font-family:'Playfair Display',serif;font-size:34px;line-height:1.02;margin:0 0 8px;color:var(--ink)}
-    @media(min-width:960px){h1{font-size:44px}}
-    .lead{color:var(--muted);font-size:17px;max-width:760px;margin-bottom:18px}
+    .headline-small{font-weight:800;color:var(--accent-1);font-size:14px;margin-bottom:8px}
+    h1{font-family:'Playfair Display',serif;font-size:var(--hero-title-size);line-height:1;margin:0 0 10px;color:var(--ink);letter-spacing:-0.02em}
+    .lead{color:var(--muted);font-size:18px;max-width:820px;margin-bottom:12px}
 
-    .dates{display:inline-block;background:linear-gradient(90deg, rgba(201,74,122,0.06), rgba(14,163,124,0.06));
-           padding:8px 12px;border-radius:999px;color:var(--accent-1);font-weight:700;margin-bottom:12px}
+    .dates{display:inline-block;background:linear-gradient(90deg, rgba(201,74,122,0.06), rgba(14,163,124,0.06));padding:8px 12px;border-radius:999px;color:var(--accent-1);font-weight:700;margin-bottom:12px}
 
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      border-radius:12px;padding:12px 18px;font-weight:800;font-size:15px;cursor:pointer;border:0;
-      box-shadow:0 10px 30px rgba(2,8,23,0.06);transition:transform .16s ease,box-shadow .16s ease,opacity .12s;
-    }
+    .btn{border-radius:12px;padding:12px 18px;font-weight:800;font-size:15px;cursor:pointer;border:0;box-shadow:0 10px 30px rgba(2,8,23,0.06);transition:transform .16s}
     .btn:active{transform:translateY(1px)}
     .btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff}
     .btn-ghost{background:transparent;border:1px solid rgba(15,23,36,0.06);color:var(--muted)}
 
     .hero-right{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(0,0,0,0.03)}
     .mini{font-size:13px;color:var(--muted);margin-bottom:8px}
-    .count{font-size:30px;font-weight:800;color:var(--ink);margin-bottom:6px}
+    .count{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:6px}
     .meta{font-weight:700;color:var(--muted);margin-bottom:6px}
 
-    /* SECTIONS */
+    /* Sections */
     section{padding:48px 0;border-top:1px solid rgba(0,0,0,0.03)}
     .section-title{font-family:'Playfair Display',serif;font-size:26px;margin:0 0 12px;text-align:center;color:var(--ink)}
 
-    /* cards 3 noites */
+    /* Three nights cards (with full text as provided) */
     .grid-3{display:grid;gap:18px}
     @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{
-      background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);
-      box-shadow:0 10px 30px rgba(2,8,23,0.03)
-    }
-    .card h3{font-size:18px;margin:0 0 8px;color:var(--accent-1)}
-    .card p{color:var(--muted);margin:0}
+    .card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
+    .card h3{font-size:18px;margin:0 0 10px;color:var(--accent-1)}
+    .card p{color:var(--muted);margin:6px 0 0;white-space:pre-line}
 
     /* benefits */
     .benefits{display:grid;gap:10px;max-width:920px;margin:10px auto 0}
@@ -108,18 +92,15 @@
     .benefits li{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.03);display:flex;gap:12px;align-items:center}
     .icon-square{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
 
-    /* FAQ avançado */
+    /* FAQ */
     .faq-wrap{max-width:1000px;margin:6px auto 0}
     .faq-controls{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
-    .faq-search{flex:1;display:flex;gap:8px;align-items:center}
     .faq-search input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:transparent;color:var(--ink)}
-    .faq-filter{display:flex;gap:8px}
     .chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(0,0,0,0.04);cursor:pointer;color:var(--muted)}
     .chip.active{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;border-color:transparent}
 
     .faq-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
     @media(max-width:980px){.faq-grid{grid-template-columns:1fr}}
-    .faq-list{display:grid;gap:12px}
     .faq-card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
     .faq-q{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
     .faq-q h4{margin:0;font-size:16px;color:var(--ink)}
@@ -129,31 +110,23 @@
     .answer{max-height:0;overflow:hidden;transition:max-height .28s ease;padding:0 2px}
     .faq-card.open .answer{max-height:320px;padding-top:12px}
 
-    /* right column - quick list of questions */
     .faq-idx{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
     .faq-idx h5{margin:0 0 8px;font-size:15px;color:var(--ink)}
     .faq-idx ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     .faq-idx li{cursor:pointer;padding:8px;border-radius:8px;color:var(--muted);border:1px solid transparent}
     .faq-idx li:hover{background:rgba(0,0,0,0.02);color:var(--ink);border-color:rgba(0,0,0,0.03)}
 
-    /* inscrição */
+    /* form */
     .form-card{max-width:760px;margin:10px auto;padding:20px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04)}
     .form-row{display:grid;gap:8px}
     @media(min-width:720px){.form-row{grid-template-columns:1fr 260px}}
     label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px;font-weight:700}
-    input[type="text"], input[type="email"]{
-      width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:transparent;color:var(--ink);
-      outline:none;font-size:15px
-    }
+    input[type="text"], input[type="email"]{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:transparent;color:var(--ink);outline:none;font-size:15px}
     .form-foot{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:12px}
     .small{font-size:13px;color:var(--muted);}
 
     footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
-
-    /* focus */
     a:focus, button:focus, input:focus{outline:3px solid rgba(201,74,122,0.12);outline-offset:3px;border-radius:6px}
-
-    /* micro */
     .muted-small{color:var(--muted);font-size:14px}
   </style>
 </head>
@@ -179,9 +152,14 @@
     <!-- hero -->
     <main class="hero" role="main" aria-labelledby="main-title">
       <div>
-        <div class="kicker">Três noites • encontro online</div>
+        <div class="headline-small">Workshop Gratuito:</div>
+        <!-- TÍTULO BEM GRANDE -->
         <h1 id="main-title">Antes de virar o ano, quero estar em paz comigo.</h1>
-        <p class="lead">Dias 2, 3 e 4 de dezembro • às 20h — três encontros curtos e profundos para reconhecer, soltar e renascer leve para 2026.</p>
+
+        <!-- subtítulo com datas + descrição exata -->
+        <div class="dates">Dias 2, 3 e 4 de dezembro • às 20h</div>
+        <p class="lead">Três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes do novo ciclo começar.</p>
+
         <div class="hero-cta" role="group" aria-label="Ações principais">
           <button class="btn btn-primary" onclick="document.getElementById('inscricao').scrollIntoView({behavior:'smooth'})">Inscrever-se grátis</button>
           <a class="btn btn-ghost" href="#noites">Ver as noites</a>
@@ -198,29 +176,39 @@
       </aside>
     </main>
 
-    <!-- sobre -->
+    <!-- sobre (frase removida conforme solicitado) -->
     <section id="sobre" aria-labelledby="sobre-title">
       <h2 id="sobre-title" class="section-title">Um espaço para encerrar o ano com leveza</h2>
-      <p style="text-align:center;color:var(--muted);max-width:820px;margin:6px auto 0">Três noites para dar nome ao que pesa, aprender a soltar com cuidado e plantar intenções suaves para começar 2026 com mais paz. Práticas guiadas, compartilhamento e um pequeno ritual de fechamento.</p>
+      <p style="text-align:center;color:var(--muted);max-width:820px;margin:6px auto 0">Três noites para dar nome ao que pesa, aprender a soltar com cuidado e plantar intenções suaves para começar 2026 com mais paz.</p>
     </section>
 
-    <!-- tres noites -->
+    <!-- tres noites (com o texto exato pedido, mantendo referência a 2026 no 3º encontro) -->
     <section id="noites" aria-labelledby="noites-title">
       <h2 id="noites-title" class="section-title">As três noites</h2>
       <div class="grid-3" style="margin-top:18px">
         <article class="card" aria-labelledby="n1">
           <h3 id="n1">🌙 1ª Noite — O peso que ainda carrego</h3>
-          <p>Reconhecer as mágoas, culpas e cobranças que ocupam espaço. Nomear para começar a libertar.</p>
+          <p>
+Reconheça o que está tirando sua paz.
+Mágoas, culpas e cobranças que já não cabem mais.
+O primeiro passo pra se libertar é dar nome ao que dói.
+          </p>
         </article>
 
         <article class="card" aria-labelledby="n2">
-          <h3 id="n2">💚 2ª Noite — Quando soltar é cuidar</h3>
-          <p>Exercícios práticos para soltar o controle, acolher limites e aprender que cuidar inclui pausar.</p>
+          <h3 id="n2">💚 2ª Noite — Quando soltar é a forma mais sincera de cuidar</h3>
+          <p>
+Aprenda a soltar o controle e a cuidar de si com verdade.
+Descubra que força também é confiar, pausar e permitir-se descansar.
+          </p>
         </article>
 
         <article class="card" aria-labelledby="n3">
           <h3 id="n3">✨ 3ª Noite — O recomeço que nasce da paz</h3>
-          <p>Ritual de encerramento: transformar o vivido em sabedoria e escolher intenções para o novo ciclo.</p>
+          <p>
+Transforme o que viveu em sabedoria e escolha recomeçar leve.
+Defina suas intenções para 2026 em um ritual de paz e renascimento.
+          </p>
         </article>
       </div>
     </section>
@@ -257,7 +245,7 @@
 
         <div class="faq-grid">
           <div class="faq-list" id="faqList">
-            <!-- cada item: data-tags define filtros -->
+            <!-- itens: mantidos -->
             <div class="faq-card" data-tags="logistica">
               <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
                 <div class="faq-icon">Q</div>
@@ -266,9 +254,7 @@
                   <p>Recomendamos acompanhar o ciclo completo, mas você pode participar de noites isoladas se necessário.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">Acompanhar as três noites dá mais sentido ao processo — cada encontro constrói o seguinte. Se faltar uma, não se preocupe: você ainda será bem-vinda nas demais.</div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">Acompanhar as três noites dá mais sentido ao processo — cada encontro constrói o seguinte. Se faltar uma, não se preocupe: você ainda será bem-vinda nas demais.</div></div>
             </div>
 
             <div class="faq-card" data-tags="conteudo">
@@ -279,13 +265,7 @@
                   <p>Resumo prático dos focos das três noites.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">
-                  1ª noite: reconhecimento das feridas e pesos. <br>
-                  2ª noite: práticas de soltura e autocuidado. <br>
-                  3ª noite: ritual de encerramento e definição de intenções.
-                </div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">1ª noite: reconhecimento das feridas e pesos. 2ª noite: práticas de soltura e autocuidado. 3ª noite: ritual de encerramento e definição de intenções.</div></div>
             </div>
 
             <div class="faq-card" data-tags="tecnico">
@@ -296,9 +276,7 @@
                   <p>O evento é online; gravações podem ser disponibilizadas.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">As gravações geralmente ficam disponíveis por tempo limitado. Inscreva-se para receber o link quando for liberado.</div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">As gravações geralmente ficam disponíveis por tempo limitado. Inscreva-se para receber o link quando for liberado.</div></div>
             </div>
 
             <div class="faq-card" data-tags="logistica">
@@ -309,9 +287,7 @@
                   <p>Preencha o formulário de inscrição — enviaremos avisos por WhatsApp.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">A inscrição confirma seu interesse e garante que receba instruções e lembretes antes de cada encontro.</div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">A inscrição confirma seu interesse e garante que receba instruções e lembretes antes de cada encontro.</div></div>
             </div>
 
             <div class="faq-card" data-tags="conteudo">
@@ -322,9 +298,7 @@
                   <p>Participar ao vivo é recomendado para a experiência completa.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">Ao vivo você vive as práticas e troca em tempo real; ainda assim, quem não puder terá a opção de ver a gravação quando disponível.</div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">Ao vivo você vive as práticas e troca em tempo real; ainda assim, quem não puder terá a opção de ver a gravação quando disponível.</div></div>
             </div>
 
             <div class="faq-card" data-tags="tecnico">
@@ -335,14 +309,10 @@
                   <p>Não — o workshop é 100% gratuito.</p>
                 </div>
               </div>
-              <div class="answer" aria-hidden="true">
-                <div class="muted-small">Sem custos. Apenas pedimos presença e abertura para a experiência.</div>
-              </div>
+              <div class="answer" aria-hidden="true"><div class="muted-small">Sem custos. Apenas pedimos presença e abertura para a experiência.</div></div>
             </div>
-
           </div>
 
-          <!-- coluna direita: índice/atalhos -->
           <aside class="faq-idx" aria-label="Índice de perguntas">
             <h5>Atalhos rápidos</h5>
             <ul>
@@ -386,12 +356,12 @@
     </section>
 
     <footer>
-      © 2024 — Workshop “Antes de virar o ano, quero estar em paz comigo.”
+      © 2025 — Workshop “Antes de virar o ano, quero estar em paz comigo.”
     </footer>
   </div>
 
   <script>
-    // FAQ: toggle + keyboard + search + filtro + índices
+    // FAQ interatividade (toggle, busca, filtros, índice)
     (function(){
       const faqList = document.getElementById('faqList');
       const cards = Array.from(faqList.querySelectorAll('.faq-card'));
@@ -399,20 +369,17 @@
       const chips = Array.from(document.querySelectorAll('.chip'));
       const idx = document.querySelectorAll('.faq-idx li');
 
-      // toggle function
       function toggleCard(card){
         const isOpen = card.classList.toggle('open');
         const q = card.querySelector('.faq-q');
         const ans = card.querySelector('.answer');
         q.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         ans.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-        // close others
         if(isOpen){
           cards.forEach(c => { if(c !== card){ c.classList.remove('open'); c.querySelector('.faq-q').setAttribute('aria-expanded','false'); c.querySelector('.answer').setAttribute('aria-hidden','true'); }});
         }
       }
 
-      // click and keyboard
       cards.forEach(card=>{
         const q = card.querySelector('.faq-q');
         q.addEventListener('click', ()=> toggleCard(card));
@@ -421,7 +388,6 @@
         });
       });
 
-      // search filter
       function filterFAQs(term, tag){
         const t = term.trim().toLowerCase();
         cards.forEach(card=>{
@@ -433,13 +399,14 @@
         });
       }
 
-      search.addEventListener('input', ()=> {
-        const term = search.value;
-        const active = chips.find(c => c.classList.contains('active')) || {dataset:{filter:'all'}};
-        filterFAQs(term, active.dataset.filter);
-      });
+      if(search){
+        search.addEventListener('input', ()=> {
+          const term = search.value;
+          const active = chips.find(c => c.classList && c.classList.contains('active')) || {dataset:{filter:'all'}};
+          filterFAQs(term, active.dataset.filter);
+        });
+      }
 
-      // chips filter
       chips.forEach(ch=>{
         ch.addEventListener('click', ()=>{
           chips.forEach(c=>c.classList.remove('active'));
@@ -449,7 +416,6 @@
         });
       });
 
-      // index quick jump: finds first card matching text and opens it
       idx.forEach(li=>{
         li.addEventListener('click', ()=>{
           const q = li.dataset.jump || li.innerText;
@@ -469,7 +435,10 @@
       const email = document.getElementById('email').value.trim();
       const wa = document.getElementById('wa').value.trim();
 
-      const waNumber = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp'; // ALTERE para o número oficial (sem espaços/parenteses)
+      // === ATENÇÃO: Substitua abaixo pelo número de destino (formato internacional, sem sinais)
+      // Ex.: const waNumber = '+5511999999999';
+      const waNumber = '+55419998110445'; // placeholder — troque para o número/WhatsApp oficial
+
       let msg = `Quero participar do workshop "Antes de virar o ano, quero estar em paz comigo." - Nome: ${nome}`;
       if(email) msg += `; E-mail: ${email}`;
       if(wa) msg += `; WhatsApp: ${wa}`;
