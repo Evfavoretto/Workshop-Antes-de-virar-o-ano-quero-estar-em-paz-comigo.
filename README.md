@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -7,19 +6,20 @@
   <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 em paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* tenta ocultar cabeçalho do GitHub Pages, se existir */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
       --maxw:1200px;
       --blue-1:#EAF4FB;
       --blue-2:#B8E1FF;
-      --blue-deep:#0F4C81;
+      --blue-deep:#0F4C81; /* cor forte */
       --deep:#122034;
       --muted:#5A6571;
       --card:#FFFFFF;
       --shadow-lg: 0 30px 60px rgba(15,76,129,0.08);
       --hero-title: clamp(36px, 6vw, 80px);
-      --final-sub: clamp(28px, 6.5vw, 72px);
+      --final-sub: clamp(28px, 6.5vw, 52px);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -51,10 +51,10 @@
     .hero{
       position:relative;
       border-radius:20px;
-      padding:160px 44px 84px; /* aumentei o topo */
+      padding:160px 44px 84px; /* topo aumentado para cobrir título GitHub */
       background:linear-gradient(180deg, rgba(255,255,255,0.99), rgba(255,255,255,0.97));
       box-shadow:var(--shadow-lg);
-      margin:-80px 0 34px; /* empurra pra cima pra esconder o título azul */
+      margin:-80px 0 34px;
       min-height:560px;
       display:flex;
       flex-direction:column;
@@ -76,12 +76,14 @@
     h1.title{
       font-family:'Playfair Display',serif;
       font-size:var(--hero-title);
-      line-height:1.05;
+      line-height:1.03;  /* menor espaçamento entre linhas */
       color:var(--blue-deep);
-      max-width:900px;
+      max-width:760px;   /* força quebra adequada em 2 linhas */
       margin:0 auto;
       text-align:center;
+      hyphens:none;
     }
+
     .title-sub{
       margin-top:14px;
       color:var(--muted);
@@ -89,6 +91,7 @@
       max-width:760px;
       text-align:center;
     }
+
     .underline{
       width:220px;height:12px;border-radius:999px;
       background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));
@@ -106,10 +109,10 @@
     .btn-primary{background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff}
     .btn-alt{background:transparent;border:1px solid rgba(15,76,129,0.08);color:var(--muted)}
 
+    /* Sections */
     section{padding:44px 0;border-top:1px solid rgba(0,0,0,0.03)}
     .section-title{
-      font-family:'Playfair Display',serif;font-size:28px;
-      margin:0 0 20px;text-align:center;color:var(--deep)
+      font-family:'Playfair Display',serif;font-size:28px;margin:0 0 20px;text-align:center;color:var(--deep)
     }
 
     .grid-3{display:grid;gap:18px;margin-top:12px}
@@ -133,7 +136,7 @@
     .mentor h3{margin:0 0 8px;font-size:20px;color:var(--blue-deep)}
     .mentor p{margin:0;color:var(--muted);line-height:1.6}
 
-    /* FLOATS */
+    /* Floating WhatsApp */
     .whatsapp-float{
       position:fixed;right:18px;bottom:80px;background:#25D366;color:#fff;
       border-radius:999px;padding:12px 16px;font-weight:800;
@@ -142,6 +145,7 @@
     }
     .whatsapp-float img{width:20px;height:20px;display:block}
 
+    /* Floating countdown */
     .countdown-float{
       position:fixed;right:18px;bottom:18px;
       background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;
@@ -151,28 +155,50 @@
     .countdown-float .time{font-size:18px;letter-spacing:.02em}
     .countdown-float .label{font-size:12px;opacity:.9}
 
-    /* FINAL */
-    .final-highlight{
-      margin-top:32px;border-radius:12px;overflow:hidden;
+    /* FINAL: faixa azul forte full-width com texto branco */
+    .final-band{
+      width:100%;
       background:linear-gradient(180deg,var(--blue-deep),#0A3C66);
-      color:#fff;padding:42px 28px;
-      display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+      color:#fff;
+      padding:48px 0;
+      margin-top:40px;
+      box-shadow:0 -6px 30px rgba(10,60,102,0.08);
     }
-    .final-left{flex:1;min-width:320px}
-    .final-tag{font-weight:800;letter-spacing:.08em;
-      color:rgba(255,255,255,0.9);
-      font-family:'Playfair Display',serif;font-size:20px;margin:0 0 8px}
-    .final-main{font-family:'Playfair Display',serif;
-      font-size:var(--final-sub);margin:0;line-height:1;color:#fff;text-align:left}
-    .final-desc{opacity:0.95;margin-top:10px;color:rgba(255,255,255,0.9)}
+    .final-band .inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 28px;
+      text-align:center;
+    }
+    .final-band .small-tag{
+      font-family:'Playfair Display',serif;
+      font-weight:700;
+      letter-spacing:.06em;
+      opacity:0.95;
+      margin-bottom:12px;
+      font-size:18px;
+    }
+    .final-band .big-title{
+      font-family:'Playfair Display',serif;
+      font-size:var(--final-sub);
+      line-height:1.02;
+      font-weight:700;
+      margin:0 auto;
+      max-width:1100px;
+    }
+    .final-band .final-note{
+      margin-top:12px;
+      opacity:0.95;
+      font-size:15px;
+    }
 
-    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px;margin-top:18px}
 
     @media(max-width:760px){
-      .hero{padding:120px 20px 60px}
+      .hero{padding:120px 18px 60px}
       .mentor{flex-direction:column;align-items:flex-start}
       .mentor img{width:100%;height:320px}
-      .final-main{font-size:clamp(22px,8vw,36px)}
+      .final-band .big-title{font-size:clamp(22px,7vw,36px)}
     }
   </style>
 </head>
@@ -180,25 +206,26 @@
   <div class="wrap">
     <header class="topbar">
       <div class="brand">
-        <div class="logo">🌿</div>
+        <div class="logo" aria-hidden="true">🌿</div>
         <div>
           <div style="font-weight:800;font-family:'Playfair Display',serif;color:var(--blue-deep)">Antes de virar o ano</div>
           <div style="font-size:13px;color:var(--muted)">Workshop • 3 noites</div>
         </div>
       </div>
-      <nav>
+
+      <nav aria-label="Navegação principal">
         <a href="#noites">Noites</a>
         <a href="#mentor">Mentor</a>
         <a href="#final">Final</a>
       </nav>
     </header>
 
-    <main class="hero">
-      <h1 class="title">Antes de virar o ano, quero estar em paz comigo.</h1>
-      <div class="underline"></div>
+    <main class="hero" role="main" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="title">Antes de virar o ano, quero estar em paz comigo.</h1>
+      <div class="underline" aria-hidden="true"></div>
       <p class="title-sub">Dias 2, 3 e 4 de dezembro • às 20h — três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes de entrar em 2026.</p>
 
-      <div class="hero-ctas">
+      <div class="hero-ctas" role="group" aria-label="Ações principais">
         <button class="btn btn-primary" onclick="openGroup()">Já tomei minha decisão</button>
         <button class="btn btn-primary" onclick="openGroup()">Quero me inscrever agora</button>
         <button class="btn btn-alt" onclick="scrollMentor()">Ainda estou com dúvida</button>
@@ -231,40 +258,42 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
       </div>
     </section>
 
-    <section id="final">
-      <div class="final-highlight">
-        <div class="final-left">
-          <div class="final-tag">WORKSHOP — A VIDA QUE EU QUERO VIVER</div>
-          <div class="final-main">Antes de virar o ano, quero estar em paz comigo.</div>
-          <div class="final-desc">Três noites práticas (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz.</div>
-        </div>
-        <div style="min-width:220px;display:flex;flex-direction:column;gap:12px;align-items:flex-end">
-          <button class="btn btn-primary" onclick="openGroup()">Entrar no grupo</button>
-          <div style="color:rgba(255,255,255,0.9);font-size:13px;text-align:right">Clique para entrar no grupo e garantir seu lugar.</div>
-        </div>
-      </div>
-    </section>
+  </div> <!-- fim .wrap -->
 
-    <footer>© 2025 — Workshop “Antes de virar o ano, quero estar em paz comigo.”</footer>
+  <!-- FAIXA FINAL (full-width) -->
+  <div class="final-band" role="region" aria-label="Destaque final">
+    <div class="inner">
+      <div class="small-tag">Workshop</div>
+      <h2 class="big-title">Antes de virar o ano, quero estar em paz comigo.</h2>
+      <div class="final-note">Três noites práticas (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz.</div>
+      <div style="margin-top:18px">
+        <button class="btn btn-primary" style="margin-top:18px" onclick="openGroup()">Entrar no grupo</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Botões flutuantes -->
-  <button class="whatsapp-float" onclick="openGroup()">
+  <footer style="max-width:var(--maxw);margin:18px auto;padding:0 28px">© 2025 — Workshop “Antes de virar o ano, quero estar em paz comigo.”</footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">
     <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23fff' d='M20.52 3.478A11.943 11.943 0 0 0 12 .5C6.201.5 1.5 5.2 1.5 11c0 1.948.49 3.827 1.422 5.505L.5 23.5l6.984-2.243A11.45 11.45 0 0 0 12 22.5c5.799 0 10.5-4.7 10.5-10.5 0-1.87-.45-3.632-1.98-5.022zM12 20.5c-1.07 0-2.104-.2-3.07-.585l-.224-.094-4.147 1.33 1.28-3.86-.12-.247A8.5 8.5 0 1 1 20.5 11 8.48 8.48 0 0 1 12 20.5z'/></svg>" alt="">
     Entrar no grupo
   </button>
 
-  <div class="countdown-float" id="countdown">
+  <!-- Contagem regressiva flutuante -->
+  <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
     <div class="label">02 Dez • 20h</div>
   </div>
 
   <script>
+    // Link para o grupo WhatsApp (mude aqui se precisar)
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
     function scrollMentor(){ document.getElementById('mentor').scrollIntoView({behavior:'smooth', block:'center'}); }
 
+    // Contagem regressiva (target: 02 Dez 2025 20:00 local)
     const targetDate = new Date(2025, 11, 2, 20, 0, 0);
     function updateCountdown(){
       const now = new Date();
