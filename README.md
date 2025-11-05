@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -25,10 +24,11 @@
       --card:#FFFFFF;
       --glass: rgba(43,31,25,0.06);
       --radius:16px;
-      --hero-title: clamp(48px, 9.6vw, 140px);   /* título grande */
+      --hero-title: clamp(48px, 9.6vw, 140px);
       --underline-h: 12px;
       --easing: cubic-bezier(.2,.9,.3,1);
       --shadow-lg: 0 30px 60px rgba(43,31,25,0.08);
+      --whatsapp-group: 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     }
 
     *{box-sizing:border-box}
@@ -53,7 +53,7 @@
     }
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
 
-    /* HERO - layout com grande "WORKSHOP" no fundo */
+    /* HERO (gigante "WORKSHOP" no fundo) */
     .hero{
       position:relative;overflow:visible;border-radius:18px;padding:48px 28px 56px;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,250,247,0.98));
       box-shadow:var(--shadow-lg);margin:18px 0 28px;
@@ -61,7 +61,6 @@
     }
     @media(max-width:980px){ .hero{grid-template-columns:1fr;padding:36px} .hero-right{order:-1} }
 
-    /* GIGANTE BACKWORD */
     .hero::before{
       content:"WORKSHOP";
       position:absolute;left:6%;top:6%;
@@ -78,8 +77,7 @@
     .kicker{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,127,94,0.08);color:var(--peach-2);font-weight:800;font-size:13px;letter-spacing:.05em}
     h1.title{
       margin:0;font-family:'Playfair Display',serif;font-size:var(--hero-title);line-height:0.9;color:var(--peach-2);
-      position:relative;z-index:2; /* acima do 'WORKSHOP' */
-      letter-spacing:-0.01em;
+      position:relative;z-index:2;letter-spacing:-0.01em;
     }
     .title-sub{margin-top:10px;color:var(--muted);font-size:18px;max-width:760px;position:relative;z-index:2}
 
@@ -98,8 +96,8 @@
     .meta-small{font-size:13px;color:var(--muted);margin-bottom:6px}
     .meta-strong{font-weight:800;color:var(--deep);font-size:20px;margin-bottom:8px}
 
-    /* floating CTA visível em mobile */
-    .float-cta{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--peach-2),var(--peach-1));padding:12px 16px;border-radius:12px;color:#fff;font-weight:800;box-shadow:0 20px 46px rgba(255,127,94,0.22);z-index:1000}
+    /* floating CTA */
+    .float-cta{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--peach-2),var(--peach-1));padding:12px 16px;border-radius:12px;color:#fff;font-weight:800;box-shadow:0 20px 46px rgba(255,127,94,0.22);z-index:1000;border:0;cursor:pointer}
 
     /* SECTIONS */
     section{padding:44px 0;border-top:1px solid rgba(0,0,0,0.03)}
@@ -134,10 +132,10 @@
     .mentor h3{margin:0 0 8px;font-size:20px}
     .mentor p{margin:0;color:var(--muted);line-height:1.6}
 
-    /* TESTIMONIALS */
+    /* TESTIMONIALS with image cards */
     .testimonials{display:grid;gap:12px}
-    .test{background:var(--card);padding:16px;border-radius:12px;border:1px solid var(--glass);box-shadow:0 8px 22px rgba(0,0,0,0.03)}
-    .test p{margin:0;color:var(--muted)} .test .who{margin-top:10px;font-weight:700;color:var(--deep)}
+    .test-img{background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--glass);box-shadow:0 8px 22px rgba(0,0,0,0.03);display:flex;align-items:center;justify-content:center}
+    .test-img img{max-width:100%;height:auto;border-radius:8px;display:block}
 
     /* FORM */
     .form-card{max-width:760px;margin:12px auto;padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--glass);box-shadow:0 12px 34px rgba(0,0,0,0.04)}
@@ -193,12 +191,8 @@
     <main class="hero" role="main" aria-labelledby="hero-title">
       <div>
         <div class="kicker" aria-hidden="true">Workshop Gratuito</div>
-
-        <!-- TÍTULO BEM GRANDE -->
         <h1 id="hero-title" class="title">Antes de virar o ano, quero estar em paz comigo.</h1>
-
         <div class="underline" aria-hidden="true"></div>
-
         <p class="title-sub">Dias 2, 3 e 4 de dezembro • às 20h — três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes de entrar em 2026.</p>
 
         <div class="hero-ctas" role="group" aria-label="Ações principais">
@@ -207,7 +201,6 @@
           <button class="btn btn-alt" id="doubtBtn">Ainda estou com dúvida</button>
           <button class="btn btn-alt" id="moreInfoBtn">Preciso de mais informações</button>
         </div>
-
       </div>
 
       <aside class="hero-right" aria-label="Resumo do evento">
@@ -282,7 +275,7 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
       </div>
     </section>
 
-    <!-- MENTOR (usar imagem enviada: Mentor.jpeg) -->
+    <!-- MENTOR -->
     <section id="mentor" aria-labelledby="mentor-title" style="margin-top:22px">
       <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
       <div class="mentor" style="margin-top:12px">
@@ -295,13 +288,16 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
+    <!-- TRANSFORMAÇÕES REAIS (IMAGENS) -->
     <section id="depoimentos" aria-labelledby="dep-title" style="margin-top:22px">
       <h2 id="dep-title" class="section-title">Transformações Reais</h2>
       <div class="testimonials" style="margin-top:12px">
-        <div class="test"><p>"Participar foi um divisor de águas. Entendi o que me segurava e saí com ferramentas práticas — hoje fico menos ansiosa e mais presente."</p><div class="who">— Marina, 34</div></div>
-        <div class="test"><p>"O ritual de encerramento me ajudou a ver 2025 com gratidão e 2026 com esperança. Recomendo muito."</p><div class="who">— Lucas, 41</div></div>
+        <!-- usei as imagens que você enviou -->
+        <div class="test-img"><img src="WhatsApp Image 2025-11-05 at 16.32.02.jpeg" alt="Depoimento Ivete — screenshot"/></div>
+        <div class="test-img"><img src="WhatsApp Image 2025-11-05 at 16.32.03.jpeg" alt="Depoimento screenshot"/></div>
+        <div class="test-img"><img src="WhatsApp Image 2025-11-05 at 16.32.04.jpeg" alt="Depoimento screenshot 2"/></div>
       </div>
+      <p style="margin-top:10px;color:var(--muted)">Você pode me enviar mais depoimentos (texto ou imagem). Eu os adiciono aqui com layout consistente.</p>
     </section>
 
     <!-- INSCRIÇÃO -->
@@ -362,9 +358,11 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
   </div>
 
   <!-- floating CTA -->
-  <button class="float-cta" id="floatBtn" aria-label="Reservar meu lugar">Reservar meu lugar</button>
+  <button class="float-cta" id="floatBtn" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
 
   <script>
+    // ===== Interatividade: FAQ toggle, CTAs, formulário -> WhatsApp / suporte =====
+
     // FAQ toggle
     (function(){
       const items = Array.from(document.querySelectorAll('.faq-item'));
@@ -379,25 +377,32 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
       }
     })();
 
-    // Buttons
-    document.getElementById('decidedBtn').addEventListener('click', ()=> document.getElementById('inscricao').scrollIntoView({behavior:'smooth'}));
-    document.getElementById('inscNowBtn').addEventListener('click', ()=> { document.getElementById('inscricao').scrollIntoView({behavior:'smooth'}); document.getElementById('nome').focus(); });
+    // Link do grupo do WhatsApp (usado por float e CTAs)
+    const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
+
+    // Buttons behavior -> abrir grupo
+    document.getElementById('decidedBtn').addEventListener('click', ()=> { window.open(whatsappGroupUrl, '_blank'); });
+    document.getElementById('inscNowBtn').addEventListener('click', ()=> { window.open(whatsappGroupUrl, '_blank'); });
+
+    // Float button opens the group (at your request)
+    document.getElementById('floatBtn').addEventListener('click', ()=> { window.open(whatsappGroupUrl, '_blank'); });
+
     document.getElementById('doubtBtn').addEventListener('click', ()=> document.getElementById('faq').scrollIntoView({behavior:'smooth'}));
     document.getElementById('moreInfoBtn').addEventListener('click', ()=> document.getElementById('como').scrollIntoView({behavior:'smooth'}));
     document.getElementById('moreInfoInline').addEventListener('click', ()=> document.getElementById('faq').scrollIntoView({behavior:'smooth'}));
     document.getElementById('contactSupport').addEventListener('click', ()=> openWhatsAppSupport());
-    document.getElementById('floatBtn').addEventListener('click', ()=> document.getElementById('inscricao').scrollIntoView({behavior:'smooth'}));
 
-    // Form submit -> opens WhatsApp (alterar número abaixo)
+    // Form submit: opens WhatsApp with message (change waNumber below if you want that behavior)
     function handleSignup(e){
       e.preventDefault();
       const nome = document.getElementById('nome').value.trim();
       const email = document.getElementById('email').value.trim();
       const wa = document.getElementById('wa').value.trim();
 
-      // ======= ATENÇÃO: substitua pelo SEU NÚMERO no formato internacional (sem +, sem espaços)
-      // exemplo: const waNumber = '5511999999999';
-      const waNumber = '55419998110445'; // <<-- TROQUE para o número oficial
+      // If you want the form to open the group instead of sending a message, replace this by:
+      // window.open(whatsappGroupUrl, '_blank'); return false;
+      // Otherwise keep the waNumber below to open a direct message.
+      const waNumber = '55419998110445'; // <<-- opcional: troque se quiser enviar mensagem direta
 
       let msg = `Quero participar do workshop "Antes de virar o ano, quero estar em paz comigo." - Nome: ${nome}`;
       if(email) msg += `; Email: ${email}`;
@@ -409,14 +414,14 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
       return false;
     }
 
-    // Support WA
+    // Support WA (change to your number)
     function openWhatsAppSupport(){
-      const waNumber = '55419998110445'; // <<-- TROQUE para o número oficial
+      const waNumber = '55419998110445'; // <<-- TROQUE para o seu número oficial de suporte (opcional)
       const msg = encodeURIComponent('Olá — preciso de mais informações sobre o workshop "Antes de virar o ano, quero estar em paz comigo."');
       window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
     }
 
-    // attach handler
+    // Attach handler to form
     document.getElementById('signup').addEventListener('submit', handleSignup);
   </script>
 </body>
