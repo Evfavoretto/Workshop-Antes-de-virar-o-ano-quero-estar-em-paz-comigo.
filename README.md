@@ -1,22 +1,25 @@
+
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Antes de virar o ano — quero estar em paz comigo | Workshop</title>
-  <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
+  <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 em paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* esconder possíveis headers GitHub Pages */
+    /* ocultar cabeçalhos do GitHub Pages, se aparecerem */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
       --maxw:1200px;
-      --blue-1:#EAF4FB;
+      --bg-soft:#EAF4FB;
       --blue-2:#B8E1FF;
       --blue-deep:#0F4C81;
       --blue-dark:#072a49;
       --muted:#5A6571;
+      --card:#FFFFFF;
       --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
+      --flag-height:10px; /* altura das faixas simples atrás dos títulos */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -26,19 +29,19 @@
       -webkit-font-smoothing:antialiased;
       background:
         radial-gradient(1200px 600px at 10% 10%, rgba(11,76,129,0.03), transparent 6%),
-        linear-gradient(180deg,var(--blue-1), #FFFFFF 86%);
+        linear-gradient(180deg,var(--bg-soft), #FFFFFF 86%);
       color:#122034;
     }
 
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;position:relative;z-index:1}
 
-    /* topbar minimal (oculto em gh-pages) */
+    /* topo simples */
     .topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-2),#89CFFD);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
     nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
 
-    /* HERO: quadro branco mais largo */
+    /* HERO: quadro branco mais largo e elevado */
     .hero{
       position:relative;
       border-radius:18px;
@@ -51,29 +54,30 @@
       flex-direction:column;
       align-items:center;
       text-align:center;
-      transform:translateX(-2%); /* leve deslocamento esquerdo; faixa top será movida à direita */
+      transform:translateX(-2%);
       max-width:calc(100% + 160px);
       overflow:visible;
     }
 
-    /* FAIXA AZUL: mais estreita, deslocada pra direita, sem "riscado" embaixo */
+    /* FAIXA azul escura (WORKSHOP) — trazida mais para centro/ esquerda */
     .hero-topbar{
       width:120%;
       background:var(--blue-dark);
-      padding:28px 0;           /* altura reduzida */
+      padding:28px 0;
       text-align:center;
       position:relative;
       z-index:3;
-      transform:translateX(8%); /* joguei a faixa para a direita alinhando com quadro */
+      transform:translateX(3%); /* --- ajustado para 3% conforme encomenda */
       border-top-left-radius:18px;
       border-top-right-radius:18px;
-      box-shadow: none;         /* sem linha/risco abaixo */
-      border-bottom: none;      /* garante que não tenha tracejado */
+      box-shadow:none;
+      border-bottom:none;
     }
+
     .hero-topbar h2{
       color:#fff;
       font-family:'Playfair Display',serif;
-      font-size:clamp(32px,5.6vw,56px); /* menor e sem quebra */
+      font-size:clamp(32px,5.6vw,56px);
       line-height:0.95;
       margin:0;
       font-weight:700;
@@ -81,7 +85,7 @@
       letter-spacing:.02em;
     }
 
-    /* Conteúdo abaixo da faixa */
+    /* conteúdo abaixo da faixa */
     .hero-content{margin-top:22px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
     h1.title{
       font-family:'Playfair Display',serif;
@@ -96,19 +100,29 @@
     .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
     .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px;text-align:center}
 
-    /* Removi os CTAs da hero conforme pedido (não há botões aqui) */
+    /* se quiser reativar CTAs no futuro, espaço reservado */
+    .hero-ctas{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center;visibility:hidden}
 
-    /* Sections */
-    section{padding:52px 0;border-top:1px solid rgba(0,0,0,0.04)}
-    .section-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--blue-deep);text-align:center;margin-bottom:20px}
+    /* sections gerais */
+    section{padding:52px 0}
+    .section-title-wrap{position:relative;margin-bottom:16px}
+    /* faixa simples atrás do título (full visual width) */
+    .section-flag{
+      position:absolute;left:50%;transform:translateX(-50%);top:50%;translate:none;
+      width:100%;height:var(--flag-height);background:var(--blue-deep);border-radius:6px;z-index:0;opacity:0.95;
+      max-width:calc(100% - 120px); /* deixa margens laterais */
+    }
+    .section-title{
+      position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:28px;color:var(--blue-deep);text-align:center;padding:8px 14px;margin:0 auto;display:inline-block;background:transparent;
+    }
 
-    /* Objetivos */
+    /* Objetivos: grid */
     .objectives{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px;margin:0 auto}
     .objective-card{background:#fff;border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
     .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
     .objective-card p{color:var(--muted);line-height:1.6}
 
-    /* Noites */
+    /* Três noites (cards) */
     .grid-3{display:grid;gap:18px;margin-top:8px}
     @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
     .card{background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.03)}
@@ -121,15 +135,15 @@
     .mentor h3{margin:0 0 8px;font-size:20px;color:var(--blue-deep)}
     .mentor p{margin:0;color:var(--muted);line-height:1.6}
 
-    /* FAQ interativo: clicar abre/fecha resposta */
+    /* FAQ interativo: contraste maior e abertura suave */
     .faq{max-width:900px;margin:0 auto}
-    .faq-item{background:#fff;border-radius:12px;padding:16px;box-shadow:0 8px 20px rgba(15,76,129,0.05);margin-bottom:12px;cursor:pointer;outline:none}
+    .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:16px;box-shadow:0 8px 20px rgba(15,76,129,0.05);margin-bottom:12px;cursor:pointer;outline:none;border-left:4px solid rgba(15,76,129,0.06)}
+    .faq-item:hover{box-shadow:0 12px 26px rgba(15,76,129,0.08);border-left-color:var(--blue-deep)}
     .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif}
     .faq-item p{margin-top:10px;color:var(--muted);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
     .faq-item.open p{max-height:420px;padding-top:8px}
 
-    /* flutuantes */
-    /* Contagem: agora verticalmente centralizada no lado esquerdo */
+    /* contagem vertical lado esquerdo (centrada verticalmente) */
     .countdown-float{
       position:fixed;left:18px;top:50%;transform:translateY(-50%);
       background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;
@@ -139,10 +153,10 @@
     .countdown-float .time{font-size:18px}
     .countdown-float .label{font-size:12px;opacity:.95;margin-top:6px}
 
-    /* WhatsApp float stays bottom-right */
+    /* WhatsApp flutuante (direita / baixo) */
     .whatsapp-float{position:fixed;right:18px;bottom:80px;background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer}
 
-    /* final: faixa estreita azul escura full-width (fora do .wrap) */
+    /* faixa final estreita full-width com texto de direitos */
     .copyright-band{
       width:100%;
       background:var(--blue-dark);
@@ -155,6 +169,7 @@
 
     footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
 
+    /* responsividade */
     @media(max-width:880px){
       .hero{transform:none;padding:0 20px 50px;margin:-60px 12px 28px;min-height:460px}
       .hero-topbar{transform:none;width:100%;padding:20px 0;border-radius:12px 12px 0 0}
@@ -163,6 +178,7 @@
       .whatsapp-float{right:12px;bottom:72px}
       .mentor{flex-direction:column;align-items:flex-start}
       .mentor img{width:100%;height:260px}
+      .section-flag{max-width:calc(100% - 40px)}
     }
   </style>
 </head>
@@ -194,19 +210,27 @@
       </div>
     </main>
 
-    <!-- AS TRÊS NOITES -->
-    <section id="noites" aria-labelledby="noites-title">
-      <h2 id="noites-title" class="section-title">As três noites</h2>
-      <div class="grid-3">
+    <!-- AS TRÊS NOITES (com faixa atrás do título) -->
+    <section id="noites">
+      <div class="section-title-wrap">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 class="section-title">As três noites</h2>
+      </div>
+
+      <div class="grid-3" style="margin-top:8px">
         <article class="card"><h3>🌙 1ª Noite — O peso que ainda carrego</h3><p>Reconheça o que está tirando sua paz: mágoas, culpas e cobranças que já não cabem mais. Nomear para começar a libertar.</p></article>
         <article class="card"><h3>💚 2ª Noite — Quando soltar é cuidar</h3><p>Exercícios e práticas para soltar controle, acolher limites e aprender que cuidar também é pausar.</p></article>
         <article class="card"><h3>✨ 3ª Noite — O recomeço que nasce da paz</h3><p>Ritual de encerramento: transformar o vivido em sabedoria e definir intenções para 2026.</p></article>
       </div>
     </section>
 
-    <!-- OBJETIVOS -->
-    <section id="objetivos" aria-labelledby="obj-title">
-      <h2 id="obj-title" class="section-title">Objetivos do Workshop</h2>
+    <!-- OBJETIVOS (com faixa atrás do título) -->
+    <section id="objetivos">
+      <div class="section-title-wrap">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 class="section-title">Objetivos do Workshop</h2>
+      </div>
+
       <div class="objectives">
         <div class="objective-card"><h3>Reconhecer o que pesa</h3><p>Identificar emoções e padrões que atrapalham sua paz.</p></div>
         <div class="objective-card"><h3>Aprender a soltar</h3><p>Ferramentas práticas para libertar ansiedade, culpa e cobranças.</p></div>
@@ -214,9 +238,9 @@
       </div>
     </section>
 
-    <!-- MENTOR -->
-    <section id="mentor" aria-labelledby="mentor-title">
-      <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
+    <!-- Mentor -->
+    <section id="mentor">
+      <h2 class="section-title">Conheça seu mentor</h2>
       <div class="mentor" role="region" aria-label="Mentor">
         <img src="Mentor.jpeg" alt="Evandro Favoretto — mentor do workshop">
         <div class="bio">
@@ -227,8 +251,12 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
+    <section id="faq">
+      <div class="section-title-wrap" style="margin-bottom:12px">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+      </div>
+
       <div class="faq" role="list">
         <div class="faq-item" role="listitem" tabindex="0">
           <h4>Para quem é o Workshop?</h4>
@@ -256,39 +284,38 @@
         </div>
       </div>
     </section>
+  </div> <!-- /.wrap -->
 
-  </div> <!-- fim .wrap -->
-
-  <!-- faixa final estreita full-width com texto de direitos -->
+  <!-- faixa final e copyright -->
   <div class="copyright-band" role="contentinfo">
     Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”
   </div>
 
   <footer aria-hidden="true">© 2025</footer>
 
-  <!-- contagem (meio-esquerdo) -->
+  <!-- contagem central-esquerda -->
   <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
     <div class="label">02 Dez • 20h</div>
   </div>
 
-  <!-- botão WhatsApp flutuante -->
+  <!-- whatsapp flutuante -->
   <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
 
   <script>
-    // link do grupo (fornecido)
+    // link do grupo
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
 
-    // FAQ interativo: clicando no item abre/fecha; teclado: Enter/Space
+    // FAQ: abrir/fechar (clique e teclado)
     document.querySelectorAll('.faq-item').forEach(item=>{
       function toggle(){ item.classList.toggle('open'); }
       item.addEventListener('click', toggle);
       item.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); } });
     });
 
-    // Contagem regressiva (02 Dez 2025 20:00 local)
+    // contagem regressiva (02 Dez 2025 20:00 local)
     const targetDate = new Date(2025,11,2,20,0,0);
     function updateCountdown(){
       const now = new Date();
@@ -300,7 +327,7 @@
       diff -= days * (1000*60*60*24);
       const hours = Math.floor(diff / (1000*60*60));
       diff -= hours * (1000*60*60);
-      const minutes = Math.floor(diff / (1000*60));
+      const minutes = Math.floor(diff / (1000*60)) ;
       diff -= minutes * (1000*60);
       const seconds = Math.floor(diff / 1000);
       el.textContent = `${days}d — ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
