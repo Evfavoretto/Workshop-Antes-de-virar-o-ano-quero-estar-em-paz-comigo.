@@ -18,23 +18,28 @@
     }
 
     :root{
-      --bg-1: #FFF9F6;
-      --bg-2: #FFF3EA;
-      --accent-1: #C94A7A;
-      --accent-2: #0EA37C;
+      /* ====== personalização de cores — altere aqui ======
+         --bg-soft: fundo geral
+         --accent-1: cor principal (título / CTA)
+         --accent-2: cor secundária (gradiente)
+         --card: cor dos cards
+      =================================================== */
+      --bg-soft: #FFF7F2;        /* fundo suave (creme claro) */
+      --accent-1: #8B5CF6;       /* violeta suave, chama atenção sem agredir */
+      --accent-2: #FF8A65;       /* pêssego para contraste quente */
       --card: #FFFFFF;
       --muted: #6B7280;
       --ink: #0F1724;
       --radius: 14px;
       --maxw: 1200px;
-      --hero-title-size: clamp(36px, 6.8vw, 86px); /* grande e responsivo */
+      --hero-title-size: clamp(38px, 8.8vw, 110px); /* TITULO BEM GRANDE e responsivo */
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      background:linear-gradient(180deg,var(--bg-soft),#FFF2E8 60%);
       color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;
     }
 
@@ -48,20 +53,20 @@
 
     /* HERO */
     .hero{
-      margin:12px 0 30px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-      border-radius:20px;padding:36px;border:1px solid rgba(0,0,0,0.04);
-      box-shadow:0 18px 50px rgba(15,23,36,0.06);
+      margin:12px 0 10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+      border-radius:20px;padding:40px;border:1px solid rgba(0,0,0,0.04);
+      box-shadow:0 18px 50px rgba(15,23,36,0.05);
       display:grid;grid-template-columns:1fr;gap:18px;align-items:center;
     }
-    @media(min-width:980px){.hero{grid-template-columns:1fr 420px;padding:44px}}
+    @media(min-width:980px){.hero{grid-template-columns:1fr 420px;padding:48px}}
 
     .kicker{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
     .headline-small{font-weight:800;color:var(--accent-1);font-size:14px;margin-bottom:8px}
-    h1{font-family:'Playfair Display',serif;font-size:var(--hero-title-size);line-height:1;margin:0 0 10px;color:var(--ink);letter-spacing:-0.02em}
+    h1{font-family:'Playfair Display',serif;font-size:var(--hero-title-size);line-height:1;margin:0 0 10px;color:var(--accent-1); /* título destacado em accent-1 */ }
     .lead{color:var(--muted);font-size:18px;max-width:820px;margin-bottom:12px}
 
-    .dates{display:inline-block;background:linear-gradient(90deg, rgba(201,74,122,0.06), rgba(14,163,124,0.06));padding:8px 12px;border-radius:999px;color:var(--accent-1);font-weight:700;margin-bottom:12px}
+    .dates{display:inline-block;background:linear-gradient(90deg, rgba(139,92,246,0.06), rgba(255,138,101,0.06));padding:8px 12px;border-radius:999px;color:var(--accent-1);font-weight:700;margin-bottom:12px}
 
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
     .btn{border-radius:12px;padding:12px 18px;font-weight:800;font-size:15px;cursor:pointer;border:0;box-shadow:0 10px 30px rgba(2,8,23,0.06);transition:transform .16s}
@@ -75,13 +80,20 @@
     .meta{font-weight:700;color:var(--muted);margin-bottom:6px}
 
     /* Sections */
-    section{padding:48px 0;border-top:1px solid rgba(0,0,0,0.03)}
+    section{padding:46px 0;border-top:1px solid rgba(0,0,0,0.03)}
     .section-title{font-family:'Playfair Display',serif;font-size:26px;margin:0 0 12px;text-align:center;color:var(--ink)}
 
-    /* Three nights cards (with full text as provided) */
-    .grid-3{display:grid;gap:18px}
+    /* problem + solution cards */
+    .ps-grid{display:grid;gap:18px;align-items:stretch}
+    @media(min-width:900px){.ps-grid{grid-template-columns:1fr 1fr}}
+    .ps-card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
+    .ps-card h3{margin:0 0 10px;color:var(--accent-1);font-size:20px}
+    .ps-card p{color:var(--muted);margin:0;font-size:16px;white-space:pre-line}
+
+    /* Three nights cards */
+    .grid-3{display:grid;gap:18px;margin-top:6px}
     @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
+    .card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,8,23,0.03)}
     .card h3{font-size:18px;margin:0 0 10px;color:var(--accent-1)}
     .card p{color:var(--muted);margin:6px 0 0;white-space:pre-line}
 
@@ -126,7 +138,7 @@
     .small{font-size:13px;color:var(--muted);}
 
     footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
-    a:focus, button:focus, input:focus{outline:3px solid rgba(201,74,122,0.12);outline-offset:3px;border-radius:6px}
+    a:focus, button:focus, input:focus{outline:3px solid rgba(139,92,246,0.14);outline-offset:3px;border-radius:6px}
     .muted-small{color:var(--muted);font-size:14px}
   </style>
 </head>
@@ -143,8 +155,8 @@
       </div>
       <nav aria-label="Navegação principal">
         <a href="#noites">Noites</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#faq">Perguntas</a>
+        <a href="#problema">Problema</a>
+        <a href="#solucao">Solução</a>
         <a href="#inscricao">Inscrição</a>
       </nav>
     </header>
@@ -153,10 +165,10 @@
     <main class="hero" role="main" aria-labelledby="main-title">
       <div>
         <div class="headline-small">Workshop Gratuito:</div>
-        <!-- TÍTULO BEM GRANDE -->
+        <!-- TÍTULO BEM GRANDE E DESTACADO -->
         <h1 id="main-title">Antes de virar o ano, quero estar em paz comigo.</h1>
 
-        <!-- subtítulo com datas + descrição exata -->
+        <!-- subtítulo com datas + descrição -->
         <div class="dates">Dias 2, 3 e 4 de dezembro • às 20h</div>
         <p class="lead">Três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes do novo ciclo começar.</p>
 
@@ -176,13 +188,32 @@
       </aside>
     </main>
 
-    <!-- sobre (frase removida conforme solicitado) -->
-    <section id="sobre" aria-labelledby="sobre-title">
-      <h2 id="sobre-title" class="section-title">Um espaço para encerrar o ano com leveza</h2>
-      <p style="text-align:center;color:var(--muted);max-width:820px;margin:6px auto 0">Três noites para dar nome ao que pesa, aprender a soltar com cuidado e plantar intenções suaves para começar 2026 com mais paz.</p>
+    <!-- PROBLEMA / SOLUÇÃO -->
+    <section id="problema" aria-labelledby="prob-title">
+      <h2 id="prob-title" class="section-title">O problema que a maioria enfrenta</h2>
+      <div class="ps-grid" style="margin-top:12px">
+        <div class="ps-card">
+          <h3>Você não está sozinha nisso</h3>
+          <p>
+Muitas pessoas chegam ao fim do ano carregando cansaço emocional, culpa por não ter sido “suficiente”, mágoas antigas e a sensação de que o tempo passou sem que elas tivessem cuidado de si.
+Isso cria ansiedade, noites sem sono e um peso constante que impede um recomeço com leveza.
+          </p>
+        </div>
+
+        <div class="ps-card" id="solucao" aria-labelledby="sol-title">
+          <h3 id="sol-title">A solução — por onde começar</h3>
+          <p>
+Entrar em um espaço guiado, curto e seguro onde você possa:
+• nomear o que pesa,
+• aprender práticas para soltar com cuidado,
+• e transformar experiência em intenção para o próximo ciclo.
+O Workshop é exatamente isso: três noites práticas e acolhedoras que ajudam você a fechar 2025 com paz e entrar em 2026 mais leve.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- tres noites (com o texto exato pedido, mantendo referência a 2026 no 3º encontro) -->
+    <!-- tres noites (com o texto exato pedido) -->
     <section id="noites" aria-labelledby="noites-title">
       <h2 id="noites-title" class="section-title">As três noites</h2>
       <div class="grid-3" style="margin-top:18px">
@@ -245,7 +276,7 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.
 
         <div class="faq-grid">
           <div class="faq-list" id="faqList">
-            <!-- itens: mantidos -->
+            <!-- items -->
             <div class="faq-card" data-tags="logistica">
               <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
                 <div class="faq-icon">Q</div>
