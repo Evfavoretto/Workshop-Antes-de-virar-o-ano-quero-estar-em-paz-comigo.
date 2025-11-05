@@ -210,7 +210,7 @@ Defina suas intenções para 2026 em um ritual de paz e renascimento.</p></artic
     <section id="final" aria-labelledby="final-title">
       <div class="final-highlight" role="region" aria-label="Destaque final">
         <div class="final-left">
-          <div class="final-tag">WORKSHOP — A VIDA QUE EU QUERO VIVER</div>
+          <div class="final-tag">WORKSHOP </div>
           <div class="final-main">Antes de virar o ano, quero estar em paz comigo.</div>
           <div class="final-desc">Três noites práticas (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz.</div>
         </div>
