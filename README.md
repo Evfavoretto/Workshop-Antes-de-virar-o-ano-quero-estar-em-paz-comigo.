@@ -7,7 +7,7 @@
   <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* esconder cabeçalhos do GitHub Pages (se houver) */
+    /* esconder cabeçalhos automáticos do GitHub Pages (se houver) */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
@@ -19,7 +19,12 @@
       --muted:#5A6571;
       --card:#FFFFFF;
       --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
-      --section-flag-height:40px;
+
+      /* ajuste global das faixas das seções */
+      --section-flag-height-desktop:40px;
+      --section-flag-height-tablet:32px;
+      --section-flag-height-mobile:22px;
+
       --hero-padding-x:48px;
       --hero-min-height:520px;
     }
@@ -47,42 +52,58 @@
       position:relative;border-radius:18px;
       background:linear-gradient(180deg, rgba(250,252,255,0.99), rgba(247,249,252,0.98));
       box-shadow:var(--shadow-lg);
-      padding:0 var(--hero-padding-x) 64px;margin:-90px auto 38px;min-height:var(--hero-min-height);
+      padding:0 var(--hero-padding-x) 64px;
+      margin:-70px auto 38px;
+      min-height:var(--hero-min-height);
       display:flex;flex-direction:column;align-items:center;text-align:center;transform:translateX(-2%);max-width:calc(100% + 160px);overflow:visible;
     }
 
-    /* FAIXA WORKSHOP */
+    /* FAIXA WORKSHOP (topo) */
     .hero-topbar{
-      width:120%;background:var(--blue-dark);padding:28px 0;text-align:center;position:relative;z-index:3;
-      transform:translateX(-3%);border-top-left-radius:18px;border-top-right-radius:18px;box-shadow:none;border-bottom:none;
+      width:120%;background:var(--blue-dark);padding:26px 0;text-align:center;position:relative;z-index:3;
+      transform:translateX(-2%);border-top-left-radius:18px;border-top-right-radius:18px;box-shadow:none;border-bottom:none;
     }
     .hero-topbar h2{
       color:#fff;font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,48px);line-height:1;margin:0;font-weight:700;white-space:nowrap;
       letter-spacing:.02em;
     }
 
-    .hero-content{margin-top:20px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
+    .hero-content{margin-top:18px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
     h1.title{
       font-family:'Playfair Display',serif;
-      font-size:clamp(32px,6vw,64px);
+      font-size:clamp(30px,6vw,64px);
       line-height:1.02;color:var(--blue-deep);max-width:820px;margin:6px auto 6px;text-align:center;
-      /* garantir que não quebre em muitos pedaços em telas grandes */
-      word-break:normal;
     }
     .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
     .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px;text-align:center}
 
-    /* Sections (faixas escuras atrás dos títulos) */
+    /* Sections: faixa escura de fundo + título em branco (garantir espaço e não recortar) */
     section{padding:48px 0}
-    .section-title-wrap{position:relative;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+    .section-title-wrap{
+      position:relative;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      /* garante espaço extra acima e abaixo para não haver recorte */
+      padding-top:12px;
+      padding-bottom:6px;
+    }
+
+    /* flag responsiva */
     .section-flag{
       position:absolute;left:50%;transform:translateX(-50%);
-      width:100%;height:var(--section-flag-height);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
+      width:100%;height:var(--section-flag-height-desktop);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
       max-width:calc(100% - 120px);
     }
-    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:22px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent}
 
-    /* Cards / grids */
+    .section-title{
+      position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:22px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent;
+      line-height:1;
+      white-space:normal; /* permite wrapping sem recortar */
+    }
+
+    /* GRID / CARDS */
     .objectives{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px;margin:0 auto}
     .objective-card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
     .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
@@ -93,6 +114,7 @@
     .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.03)}
     .card h3{font-size:18px;margin:0 0 8px;color:var(--blue-deep)} .card p{color:var(--muted);line-height:1.6}
 
+    /* Mentor */
     .mentor{display:flex;gap:18px;align-items:center;padding:18px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.04);max-width:1100px;margin:0 auto}
     .mentor img{width:200px;height:200px;border-radius:10px;object-fit:cover}
     .mentor .bio{flex:1}
@@ -107,14 +129,14 @@
     .faq-item p{margin-top:10px;color:var(--muted);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
     .faq-item.open p{max-height:420px;padding-top:8px}
 
-    /* "Para quem é / não é" */
+    /* Para quem é / nao é */
     .who-grid{display:grid;gap:18px;grid-template-columns:1fr 1fr;max-width:1100px;margin:18px auto 0}
     @media(max-width:880px){.who-grid{grid-template-columns:1fr}}
     .who-box{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(15,76,129,0.03)}
     .who-box h4{margin:0 0 8px;font-family:'Playfair Display',serif;color:var(--blue-deep)}
     .who-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
 
-    /* CONTAGEM e WHATSAPP - comportamento diferente desktop / mobile */
+    /* CONTAGEM e WHATSAPP - desktop: vertical central; mobile: bottom area */
     .countdown-float{
       position:fixed;left:18px;top:50%;transform:translateY(-50%);
       background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:0 20px 46px rgba(15,76,129,0.22);z-index:1004;text-align:center;
@@ -127,34 +149,35 @@
       background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer;
     }
 
-    /* mobile adjustments */
+    /* mobile tweaks */
     @media(max-width:880px){
       :root{
         --hero-padding-x:20px;
         --hero-min-height:420px;
-        --section-flag-height:24px;
       }
 
-      .hero{padding:0 var(--hero-padding-x) 48px;margin:-60px 12px 28px;min-height:var(--hero-min-height)}
+      .hero{padding:0 var(--hero-padding-x) 48px;margin:-48px 12px 28px;min-height:var(--hero-min-height)}
       .hero-topbar{transform:translateX(0);width:100%;padding:18px 0;border-radius:12px 12px 0 0}
       .hero-topbar h2{font-size:28px;white-space:normal;text-align:center}
-      h1.title{font-size:clamp(26px,7.5vw,40px);padding:0 6px}
-      .section-flag{max-width:calc(100% - 40px)}
+      h1.title{font-size:clamp(24px,7vw,40px);padding:0 8px}
+      .section-flag{height:var(--section-flag-height-tablet);max-width:calc(100% - 40px)}
       .section-title{font-size:18px;padding:6px 12px}
-      .countdown-float{left:12px;top:auto;bottom:140px;transform:none}
+      .countdown-float{left:12px;top:auto;bottom:120px;transform:none}
       .whatsapp-float{right:12px;top:auto;bottom:18px;transform:none}
       .who-grid{grid-template-columns:1fr}
-      .mentor img{height:220px}
+      .mentor{flex-direction:column;align-items:center}
+      .mentor img{width:100%;height:auto;max-width:320px}
       .faq-item h4{font-size:15px}
     }
 
-    /* small screens extra tweak */
+    /* extra small */
     @media(max-width:420px){
-      .hero-topbar h2{font-size:22px}
-      h1.title{font-size:24px}
-      .section-flag{max-width:calc(100% - 24px)}
-      .countdown-float{bottom:120px;padding:10px 12px}
+      .section-flag{height:var(--section-flag-height-mobile);max-width:calc(100% - 24px)}
+      .hero{margin:-40px 8px 18px}
+      .countdown-float{bottom:110px;padding:10px 12px}
       .whatsapp-float{padding:10px 12px;font-size:14px}
+      .hero-topbar h2{font-size:20px}
+      h1.title{font-size:22px}
     }
 
     /* final band */
@@ -190,7 +213,7 @@
       </div>
     </main>
 
-    <!-- AS TRÊS NOITES -->
+    <!-- TRÊS NOITES -->
     <section id="noites" aria-labelledby="noites-title">
       <div class="section-title-wrap" aria-hidden="true">
         <div class="section-flag" aria-hidden="true"></div>
@@ -218,7 +241,7 @@
       </div>
     </section>
 
-    <!-- PARA QUEM É / NÃO É -->
+    <!-- PARA QUEM -->
     <section id="para-quem" aria-labelledby="who-title">
       <div class="section-title-wrap" style="margin-bottom:12px">
         <div class="section-flag" aria-hidden="true"></div>
@@ -250,7 +273,7 @@
 
     <!-- MENTOR -->
     <section id="mentor" aria-labelledby="mentor-title">
-      <div class="section-title-wrap" style="margin-bottom:12px">
+      <div class="section-title-wrap" style="margin-bottom:8px">
         <div class="section-flag" aria-hidden="true"></div>
         <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
       </div>
@@ -289,7 +312,7 @@
 
         <div class="faq-item" role="listitem" tabindex="0">
           <h4>Como faço a inscrição?</h4>
-          <p>Clique em “Entrar no grupo” (botão verde no canto direito) para acessar o grupo de organização e receber os links e materiais.</p>
+          <p>Clique em “Entrar no grupo” (botão verde) para acessar o grupo de organização e receber os links e materiais.</p>
         </div>
 
         <div class="faq-item" role="listitem" tabindex="0">
@@ -301,14 +324,14 @@
 
   </div> <!-- /.wrap -->
 
-  <!-- faixa final e copyright (© primeiro) -->
+  <!-- faixa final e copyright -->
   <div class="copyright-band" role="contentinfo">
     © 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”
   </div>
 
-  <footer aria-hidden="true">© 2025</footer>
+ 
 
-  <!-- contagem e whatsapp -->
+  <!-- contagem e botão WhatsApp -->
   <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
@@ -318,7 +341,6 @@
   <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
 
   <script>
-    // link do grupo
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
 
