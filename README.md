@@ -1,3 +1,4 @@
+
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -6,7 +7,7 @@
   <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* esconder headers automáticos do GitHub Pages */
+    /* esconder cabeçalhos do GitHub Pages (se houver) */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
@@ -19,6 +20,8 @@
       --card:#FFFFFF;
       --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
       --section-flag-height:40px;
+      --hero-padding-x:48px;
+      --hero-min-height:520px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -37,86 +40,126 @@
     .topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-2),#89CFFD);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
-    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
 
     /* HERO */
     .hero{
       position:relative;border-radius:18px;
       background:linear-gradient(180deg, rgba(250,252,255,0.99), rgba(247,249,252,0.98));
-      box-shadow:var(--shadow-lg);padding:0 48px 64px;margin:-90px auto 38px;min-height:520px;
+      box-shadow:var(--shadow-lg);
+      padding:0 var(--hero-padding-x) 64px;margin:-90px auto 38px;min-height:var(--hero-min-height);
       display:flex;flex-direction:column;align-items:center;text-align:center;transform:translateX(-2%);max-width:calc(100% + 160px);overflow:visible;
     }
 
+    /* FAIXA WORKSHOP */
     .hero-topbar{
       width:120%;background:var(--blue-dark);padding:28px 0;text-align:center;position:relative;z-index:3;
       transform:translateX(-3%);border-top-left-radius:18px;border-top-right-radius:18px;box-shadow:none;border-bottom:none;
     }
     .hero-topbar h2{
-      color:#fff;font-family:'Playfair Display',serif;font-size:clamp(32px,5.6vw,56px);line-height:0.95;margin:0;font-weight:700;white-space:nowrap;
+      color:#fff;font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,48px);line-height:1;margin:0;font-weight:700;white-space:nowrap;
+      letter-spacing:.02em;
     }
 
-    .hero-content{margin-top:22px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
-    h1.title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,72px);line-height:1.02;color:var(--blue-deep);max-width:820px;margin:8px auto 6px;text-align:center}
+    .hero-content{margin-top:20px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
+    h1.title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(32px,6vw,64px);
+      line-height:1.02;color:var(--blue-deep);max-width:820px;margin:6px auto 6px;text-align:center;
+      /* garantir que não quebre em muitos pedaços em telas grandes */
+      word-break:normal;
+    }
     .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
     .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px;text-align:center}
 
-    /* Sections com faixa escura atrás e título branco */
-    section{padding:52px 0}
-    .section-title-wrap{position:relative;margin-bottom:16px;display:flex;align-items:center;justify-content:center}
-    .section-flag{position:absolute;left:50%;transform:translateX(-50%);width:100%;height:var(--section-flag-height);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;max-width:calc(100% - 120px);}
-    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:28px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent}
+    /* Sections (faixas escuras atrás dos títulos) */
+    section{padding:48px 0}
+    .section-title-wrap{position:relative;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+    .section-flag{
+      position:absolute;left:50%;transform:translateX(-50%);
+      width:100%;height:var(--section-flag-height);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
+      max-width:calc(100% - 120px);
+    }
+    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:22px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent}
 
+    /* Cards / grids */
     .objectives{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px;margin:0 auto}
-    .objective-card{background:#fff;border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
+    .objective-card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
     .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
     .objective-card p{color:var(--muted);line-height:1.6}
 
     .grid-3{display:grid;gap:18px;margin-top:8px}
     @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.03)}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.03)}
     .card h3{font-size:18px;margin:0 0 8px;color:var(--blue-deep)} .card p{color:var(--muted);line-height:1.6}
 
-    .mentor{display:flex;gap:18px;align-items:center;padding:18px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.04);max-width:1100px;margin:0 auto}
+    .mentor{display:flex;gap:18px;align-items:center;padding:18px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.04);max-width:1100px;margin:0 auto}
     .mentor img{width:200px;height:200px;border-radius:10px;object-fit:cover}
     .mentor .bio{flex:1}
     .mentor h3{margin:0 0 8px;font-size:20px;color:var(--blue-deep)}
     .mentor p{margin:0;color:var(--muted);line-height:1.6}
 
+    /* FAQ */
     .faq{max-width:900px;margin:0 auto}
     .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:16px;box-shadow:0 8px 20px rgba(15,76,129,0.05);margin-bottom:12px;cursor:pointer;outline:none;border-left:4px solid rgba(15,76,129,0.06)}
     .faq-item:hover{box-shadow:0 12px 26px rgba(15,76,129,0.08);border-left-color:var(--blue-deep)}
-    .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif}
+    .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif;font-size:16px}
     .faq-item p{margin-top:10px;color:var(--muted);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
     .faq-item.open p{max-height:420px;padding-top:8px}
 
-    /* nova seção "Para quem é / Não é" */
-    .who-grid{display:grid;gap:18px;grid-template-columns:1fr 1fr;max-width:1100px;margin:16px auto 0}
+    /* "Para quem é / não é" */
+    .who-grid{display:grid;gap:18px;grid-template-columns:1fr 1fr;max-width:1100px;margin:18px auto 0}
     @media(max-width:880px){.who-grid{grid-template-columns:1fr}}
-    .who-box{background:#fff;border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(15,76,129,0.03)}
+    .who-box{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(15,76,129,0.03)}
     .who-box h4{margin:0 0 8px;font-family:'Playfair Display',serif;color:var(--blue-deep)}
     .who-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
 
-    /* contagem (central vertical esquerda) */
-    .countdown-float{position:fixed;left:18px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:0 20px 46px rgba(15,76,129,0.22);z-index:1004;text-align:center}
-    .countdown-float .time{font-size:18px}
+    /* CONTAGEM e WHATSAPP - comportamento diferente desktop / mobile */
+    .countdown-float{
+      position:fixed;left:18px;top:50%;transform:translateY(-50%);
+      background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:0 20px 46px rgba(15,76,129,0.22);z-index:1004;text-align:center;
+    }
+    .countdown-float .time{font-size:16px}
     .countdown-float .label{font-size:12px;opacity:.95;margin-top:6px}
 
-    /* whatsapp: agora posicionado verticalmente alinhado com a contagem (lado direito) */
-    .whatsapp-float{position:fixed;right:18px;top:50%;transform:translateY(-50%);background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer}
+    .whatsapp-float{
+      position:fixed;right:18px;top:50%;transform:translateY(-50%);
+      background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer;
+    }
 
+    /* mobile adjustments */
+    @media(max-width:880px){
+      :root{
+        --hero-padding-x:20px;
+        --hero-min-height:420px;
+        --section-flag-height:24px;
+      }
+
+      .hero{padding:0 var(--hero-padding-x) 48px;margin:-60px 12px 28px;min-height:var(--hero-min-height)}
+      .hero-topbar{transform:translateX(0);width:100%;padding:18px 0;border-radius:12px 12px 0 0}
+      .hero-topbar h2{font-size:28px;white-space:normal;text-align:center}
+      h1.title{font-size:clamp(26px,7.5vw,40px);padding:0 6px}
+      .section-flag{max-width:calc(100% - 40px)}
+      .section-title{font-size:18px;padding:6px 12px}
+      .countdown-float{left:12px;top:auto;bottom:140px;transform:none}
+      .whatsapp-float{right:12px;top:auto;bottom:18px;transform:none}
+      .who-grid{grid-template-columns:1fr}
+      .mentor img{height:220px}
+      .faq-item h4{font-size:15px}
+    }
+
+    /* small screens extra tweak */
+    @media(max-width:420px){
+      .hero-topbar h2{font-size:22px}
+      h1.title{font-size:24px}
+      .section-flag{max-width:calc(100% - 24px)}
+      .countdown-float{bottom:120px;padding:10px 12px}
+      .whatsapp-float{padding:10px 12px;font-size:14px}
+    }
+
+    /* final band */
     .copyright-band{width:100%;background:var(--blue-dark);color:#fff;padding:12px 0;text-align:center;box-shadow:0 -6px 20px rgba(7,42,73,0.06);font-size:14px}
     footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
-
-    @media(max-width:880px){
-      .hero{transform:none;padding:0 20px 50px;margin:-60px 12px 28px;min-height:460px}
-      .hero-topbar{transform:none;width:100%;padding:20px 0;border-radius:12px 12px 0 0}
-      .hero-topbar h2{font-size:clamp(24px,10vw,40px)}
-      .countdown-float{left:12px;top:60%}
-      .whatsapp-float{right:12px;top:60%}
-      .mentor{flex-direction:column;align-items:flex-start}
-      .mentor img{width:100%;height:260px}
-      .section-flag{max-width:calc(100% - 40px)}
-    }
   </style>
 </head>
 <body>
@@ -148,10 +191,10 @@
     </main>
 
     <!-- AS TRÊS NOITES -->
-    <section id="noites">
+    <section id="noites" aria-labelledby="noites-title">
       <div class="section-title-wrap" aria-hidden="true">
-        <div class="section-flag"></div>
-        <h2 class="section-title">As três noites</h2>
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 id="noites-title" class="section-title">As três noites</h2>
       </div>
 
       <div class="grid-3" style="margin-top:8px">
@@ -162,10 +205,10 @@
     </section>
 
     <!-- OBJETIVOS -->
-    <section id="objetivos">
+    <section id="objetivos" aria-labelledby="obj-title">
       <div class="section-title-wrap">
-        <div class="section-flag"></div>
-        <h2 class="section-title">Objetivos do Workshop</h2>
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 id="obj-title" class="section-title">Objetivos do Workshop</h2>
       </div>
 
       <div class="objectives">
@@ -176,10 +219,10 @@
     </section>
 
     <!-- PARA QUEM É / NÃO É -->
-    <section id="para-quem">
-      <div class="section-title-wrap" style="margin-bottom:18px">
-        <div class="section-flag"></div>
-        <h2 class="section-title">Para quem é / Para quem não é</h2>
+    <section id="para-quem" aria-labelledby="who-title">
+      <div class="section-title-wrap" style="margin-bottom:12px">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 id="who-title" class="section-title">Para quem é / Para quem não é</h2>
       </div>
 
       <div class="who-grid">
@@ -199,17 +242,17 @@
             <li>Quem procura fórmulas mágicas ou soluções instantâneas sem participação.</li>
             <li>Quem não quer reservar tempo para estar presente nas três noites.</li>
             <li>Quem não está disposto(a) a olhar para emoções ou a sentir para compreender.</li>
-            <li>Quem espera resultados sem investimento pessoal (presença e prática).</li>
+            <li>Quem espera resultado sem investimento pessoal (presença e prática).</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- MENTOR -->
-    <section id="mentor">
-      <div class="section-title-wrap" style="margin-bottom:8px">
-        <div class="section-flag"></div>
-        <h2 class="section-title">Conheça seu mentor</h2>
+    <section id="mentor" aria-labelledby="mentor-title">
+      <div class="section-title-wrap" style="margin-bottom:12px">
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
       </div>
 
       <div class="mentor" role="region" aria-label="Mentor">
@@ -222,10 +265,10 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq">
+    <section id="faq" aria-labelledby="faq-title">
       <div class="section-title-wrap" style="margin-bottom:12px">
-        <div class="section-flag"></div>
-        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="section-flag" aria-hidden="true"></div>
+        <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
       </div>
 
       <div class="faq" role="list">
@@ -246,7 +289,7 @@
 
         <div class="faq-item" role="listitem" tabindex="0">
           <h4>Como faço a inscrição?</h4>
-          <p>Clique em “Entrar no grupo” (botão verde no canto) para acessar o grupo de organização e receber os links e materiais.</p>
+          <p>Clique em “Entrar no grupo” (botão verde no canto direito) para acessar o grupo de organização e receber os links e materiais.</p>
         </div>
 
         <div class="faq-item" role="listitem" tabindex="0">
@@ -265,28 +308,28 @@
 
   <footer aria-hidden="true">© 2025</footer>
 
-  <!-- contagem vertical esquerda (centro da tela) -->
+  <!-- contagem e whatsapp -->
   <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
     <div class="label">02 Dez • 20h</div>
   </div>
 
-  <!-- WhatsApp flutuante agora alinhado verticalmente com a contagem (lado direito) -->
   <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
 
   <script>
+    // link do grupo
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
 
-    // FAQ: toggle (clique + teclado)
+    // FAQ toggle (click + keyboard)
     document.querySelectorAll('.faq-item').forEach(item=>{
       function toggle(){ item.classList.toggle('open'); }
-      item.addEventListener('click', (e)=>{ toggle(); });
+      item.addEventListener('click', toggle);
       item.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); } });
     });
 
-    // Contagem regressiva (02 Dez 2025 20:00)
+    // Contagem regressiva (02 Dez 2025 20:00 local)
     const targetDate = new Date(2025,11,2,20,0,0);
     function updateCountdown(){
       const now = new Date();
