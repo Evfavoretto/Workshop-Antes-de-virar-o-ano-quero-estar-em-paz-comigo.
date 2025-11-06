@@ -260,7 +260,7 @@
     <!-- DEPOIMENTOS -->
     <section style="margin-top:36px">
       <h3 style="font-family:'Playfair Display',serif;color:var(--brand);text-align:center">Transformações reais</h3>
-      <p style="text-align:center;color:var(--muted);max-width:820px;margin:6px auto 18px">Depoimentos de participantes anteriores — substitua por reais quando preferir.</p>
+      <p style="text-align:center;color:var(--muted);max-width:820px;margin:6px auto 18px">Depoimentos de participantes do Workshop anterior.</p>
 
       <div class="tests" aria-live="polite">
         <blockquote class="test">
@@ -329,7 +329,7 @@
   <button class="float-whats" id="whats" aria-label="Entrar no grupo" onclick="openGroup()">Entrar no grupo</button>
 
   <!-- FOOTER -->
-  <footer class="footer">© 2025 — Todos os direitos reservados ao Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”</footer>
+  <footer class="footer">© 2025 — Todos os direitos reservados a empresa EA Favoretto LTDA.”</footer>
 
 <script>
   /* Link do grupo (fornecido) */
