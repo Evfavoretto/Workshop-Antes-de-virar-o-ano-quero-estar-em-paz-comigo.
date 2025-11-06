@@ -8,24 +8,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --accent: #0b4a74;        /* principal */
-    --accent-2: #147fb2;      /* secundária */
+    --accent:#0b4a74;       /* azul principal */
+    --accent-2:#147fb2;     /* azul secundário */
     --bg: linear-gradient(180deg,#f6fbff,#eaf6ff);
-    --card: #ffffff;
-    --muted: #6b7280;
-    --ink: #083047;
-    --maxw: 1150px;
+    --card:#fff;
+    --muted:#6b7280;
+    --ink:#083047;
+    --maxw:1150px;
     --radius:14px;
     --work-h:132px;
+    --faq-open:#f0f8ff;     /* fundo da resposta quando aberta */
   }
+
   *{box-sizing:border-box}
   html,body{height:100%}
   body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
 
-  /* esconder cabeçalho GitHub quando presente */
+  /* remove header do github (quando tiver) */
   header,.page-header,.site-header,.project-name,.project-tagline{display:none!important;}
 
-  /* topo fixo */
+  /* Top bar (faixa WORKSHOP) */
   .top-bar{position:fixed;left:0;right:0;top:0;height:var(--work-h);display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent),#062e45);color:#fff;z-index:2000;box-shadow:0 12px 40px rgba(0,0,0,0.18);transition:transform .32s ease}
   .top-bar.hidden{transform:translateY(-120%)}
   .top-bar h1{font-family:'Playfair Display',serif;margin:0;font-size:clamp(18px,2.6vw,32px);letter-spacing:.06em}
@@ -51,24 +53,36 @@
   .hero-right .next{font-weight:800;color:var(--accent-2);font-size:24px}
   .meta{color:var(--muted);margin-top:10px;font-weight:700}
 
-  /* PROBLEM — solução */
+  /* problema / solução */
   .problem{max-width:980px;margin:24px auto 12px;text-align:center;color:var(--muted);font-size:16px;line-height:1.6}
 
-  /* TRÊS NOITES centralizadas (faixa colorida) */
-  .noites-bleed{width:100%;margin-left:calc(-50vw + 50%);background:linear-gradient(180deg,#0f79b0,#0f6ea8);padding:54px 18px;color:#fff}
-  .noites-inner{max-width:var(--maxw);margin:0 auto;text-align:center}
-  .noites-title{font-family:'Playfair Display',serif;font-size:28px;margin:0 0 22px}
-  /* grid centralizado e cards centralizados */
-  .noites-grid{display:flex;gap:22px;justify-content:center;align-items:stretch;flex-wrap:wrap;max-width:1060px;margin:0 auto}
-  .noite-card{background:var(--card);color:var(--ink);border-radius:12px;padding:22px;box-shadow:0 20px 50px rgba(2,8,23,0.08);min-height:160px;width:320px;text-align:left;display:flex;flex-direction:column;justify-content:flex-start}
+  /* FAIXA AZUL - AS TRÊS NOITES (CENTRALIZADA) */
+  .noites-section{
+    /* full-bleed visual mas conteúdo centralizado */
+    width:100%;
+    background:linear-gradient(180deg,#0f79b0,#0f6ea8);
+    padding:60px 20px;
+    display:flex;
+    justify-content:center;
+  }
+  .noites-inner{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+    color:#fff;
+  }
+  .noites-title{font-family:'Playfair Display',serif;font-size:30px;margin:0 0 26px;color:#fff}
+  /* flex centralizado para os cards: 3 em linha, centralizados; no mobile viram em coluna */
+  .noites-grid{display:flex;gap:26px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+  .noite-card{background:var(--card);color:var(--ink);border-radius:12px;padding:22px;box-shadow:0 20px 50px rgba(2,8,23,0.08);min-height:150px;width:320px;text-align:left;display:flex;flex-direction:column;justify-content:flex-start}
   .noite-card h4{font-family:'Playfair Display',serif;color:var(--accent-2);margin-bottom:10px}
   @media(max-width:980px){.noite-card{width:100%;max-width:640px}}
 
-  /* BENEFÍCIOS */
-  .benefs{max-width:1100px;margin:44px auto 10px;display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
-  @media(max-width:1100px){.benefs{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.benefs{grid-template-columns:1fr}}
-  .benef{background:var(--card);padding:18px;border-radius:12px;color:var(--ink);box-shadow:0 18px 42px rgba(2,8,23,0.06)}
+  /* BENEFÍCIOS (novo visual: linha clara e direta, sem "balõezinhos" vagos) */
+  .benefs-row{max-width:var(--maxw);margin:38px auto;display:flex;gap:18px;justify-content:space-between;align-items:stretch;flex-wrap:wrap}
+  .benef-block{flex:1 1 220px;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 18px 48px rgba(2,8,23,0.06);min-width:200px}
+  .benef-block h4{margin:0 0 8px;color:var(--accent);font-family:'Playfair Display',serif}
+  .benef-block p{margin:0;color:var(--muted);line-height:1.6}
 
   /* OBJETIVOS */
   .objetivos-wrap{max-width:var(--maxw);margin:52px auto;padding:28px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 30px 80px rgba(2,8,23,0.06)}
@@ -96,12 +110,14 @@
   .test-card p{color:var(--muted);line-height:1.5}
   .test-author{margin-top:12px;font-weight:700;color:var(--accent)}
 
-  /* FAQ */
+  /* FAQ: destaque visual quando abrir */
   .faq{max-width:var(--maxw);margin:48px auto 80px}
-  .faq-item{background:var(--card);padding:18px;border-radius:12px;margin-bottom:12px;box-shadow:0 18px 40px rgba(2,8,23,0.06);cursor:pointer}
+  .faq-item{background:var(--card);padding:18px;border-radius:12px;margin-bottom:12px;box-shadow:0 18px 40px rgba(2,8,23,0.06);cursor:pointer;transition:background .22s,transform .12s}
+  .faq-item:hover{transform:translateY(-4px)}
   .faq-item h4{font-family:'Playfair Display',serif;color:var(--accent);margin:0}
   .faq-item p{color:var(--muted);max-height:0;overflow:hidden;transition:max-height .28s ease,padding .28s;padding:0}
-  .faq-item.open p{max-height:520px;padding-top:10px}
+  .faq-item.open{background:var(--faq-open)}
+  .faq-item.open p{max-height:520px;padding-top:12px}
 
   /* floats */
   .float-count{position:fixed;left:18px;bottom:18vh;width:170px;background:linear-gradient(180deg,var(--accent-2),#66b8e6);color:#fff;padding:14px;border-radius:14px;box-shadow:0 24px 60px rgba(2,8,23,0.18);z-index:2100}
@@ -110,8 +126,10 @@
   .footer{width:100vw;left:50%;transform:translateX(-50%);position:relative;background:var(--accent);color:#fff;padding:18px 12px;text-align:center}
 
   @media(max-width:480px){
-    .hero-title{font-size:32px}
+    .hero-title{font-size:28px}
     .noite-card{max-width:none;width:100%}
+    .benefs-row{flex-direction:column}
+    .benef-block{width:100%}
     .float-count{left:10px;width:140px;bottom:22vh}
     .float-whats{right:10px;bottom:10vh}
     .top-spacer{height:calc(var(--work-h) + 10px)}
@@ -151,24 +169,23 @@
     <!-- PROBLEM -->
     <div class="problem">Se você sente que carrega mágoas, culpa ou ansiedade ao olhar para o ano que passou — este workshop é para fechar 2025 com mais leveza. Venha transformar o peso em presença e recomeçar com intenções claras.</div>
 
-    <!-- TRÊS NOITES centralizadas -->
-    <section class="noites-bleed" id="noites" aria-labelledby="noites-title">
-      <div class="noites-inner">
+    <!-- FAIXA AZUL CENTRALIZADA - AS TRÊS NOITES -->
+    <section class="noites-section" id="noites">
+      <div class="noites-inner" role="region" aria-labelledby="noites-title">
         <h3 class="noites-title" id="noites-title">As três noites</h3>
 
-        <!-- GRID CENTRALIZADO: usa flex para centralizar independentemente do espaço -->
-        <div class="noites-grid" role="list" aria-label="cards das três noites">
-          <article class="noite-card" role="listitem">
+        <div class="noites-grid" aria-label="cards das três noites">
+          <article class="noite-card" role="article">
             <h4>🌙 1ª Noite — O peso que ainda carrego</h4>
             <p>Reconhecer as mágoas, culpas e cobranças que já não cabem mais. Nomear o que dói é o primeiro passo da libertação.</p>
           </article>
 
-          <article class="noite-card" role="listitem">
+          <article class="noite-card" role="article">
             <h4>💚 2ª Noite — Quando soltar é cuidar</h4>
             <p>Práticas de soltura, respiração e acolhimento — aprender que força também é pausar e confiar no processo.</p>
           </article>
 
-          <article class="noite-card" role="listitem">
+          <article class="noite-card" role="article">
             <h4>✨ 3ª Noite — O recomeço que nasce da paz</h4>
             <p>Ritual de encerramento: transformar o vivido em sabedoria e escolher intenções para 2026.</p>
           </article>
@@ -176,12 +193,24 @@
       </div>
     </section>
 
-    <!-- BENEFÍCIOS -->
-    <div class="benefs" aria-hidden="false">
-      <div class="benef">Clareza: entenda o que deixar para trás</div>
-      <div class="benef">Ferramentas: práticas simples para o dia a dia</div>
-      <div class="benef">Ritual: um fechamento simbólico e transformador</div>
-      <div class="benef">Comunidade: suporte no grupo</div>
+    <!-- BENEFÍCIOS (claro, sem balõezinhos) -->
+    <div class="benefs-row" aria-hidden="false">
+      <div class="benef-block">
+        <h4>Clareza</h4>
+        <p>Entenda o que é hora de deixar para trás — práticas para identificar e nomear o que pesa.</p>
+      </div>
+      <div class="benef-block">
+        <h4>Ferramentas</h4>
+        <p>Práticas simples e aplicáveis (respiração, presença) para usar no dia a dia e manter a calma.</p>
+      </div>
+      <div class="benef-block">
+        <h4>Ritual</h4>
+        <p>Um fechamento simbólico que ajuda a transformar experiências em intenção e ação para 2026.</p>
+      </div>
+      <div class="benef-block">
+        <h4>Comunidade</h4>
+        <p>Espaço de suporte no grupo — lembretes, gravações e trocas entre participantes.</p>
+      </div>
     </div>
 
     <!-- OBJETIVOS -->
@@ -256,7 +285,7 @@
       </div>
     </section>
 
-    <!-- FAQ (restauradas perguntas importantes) -->
+    <!-- FAQ -->
     <section class="faq" aria-labelledby="faq-title">
       <h3 id="faq-title" style="font-family:'Playfair Display',serif;color:var(--accent);text-align:center">Perguntas Frequentes</h3>
       <div style="height:12px"></div>
@@ -313,11 +342,11 @@
   <footer class="footer">© 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”</footer>
 
 <script>
-  // abrir grupo (link fornecido)
+  // abrir grupo
   const whatsappGroup = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
   function openGroup(){ window.open(whatsappGroup,'_blank'); }
 
-  // FAQ toggle
+  // FAQ acordeão + foco teclado
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.addEventListener('click', ()=> item.classList.toggle('open'));
     item.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); item.classList.toggle('open'); }});
