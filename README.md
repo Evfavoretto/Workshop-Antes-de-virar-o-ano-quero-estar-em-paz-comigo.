@@ -1,3 +1,4 @@
+
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
@@ -50,17 +51,18 @@
   .hero-right .next{font-weight:800;color:var(--accent-2);font-size:24px}
   .meta{color:var(--muted);margin-top:10px;font-weight:700}
 
-  /* PROBLEMA — solução */
+  /* PROBLEM — solução */
   .problem{max-width:980px;margin:24px auto 12px;text-align:center;color:var(--muted);font-size:16px;line-height:1.6}
 
   /* TRÊS NOITES centralizadas (faixa colorida) */
   .noites-bleed{width:100%;margin-left:calc(-50vw + 50%);background:linear-gradient(180deg,#0f79b0,#0f6ea8);padding:54px 18px;color:#fff}
   .noites-inner{max-width:var(--maxw);margin:0 auto;text-align:center}
   .noites-title{font-family:'Playfair Display',serif;font-size:28px;margin:0 0 22px}
-  .noites-grid{display:grid;gap:22px;grid-template-columns:repeat(3,1fr);align-items:stretch;justify-items:center;max-width:1060px;margin:0 auto}
-  @media(max-width:980px){.noites-grid{grid-template-columns:1fr}}
-  .noite-card{background:var(--card);color:var(--ink);border-radius:12px;padding:22px;box-shadow:0 20px 50px rgba(2,8,23,0.08);min-height:160px;width:100%;max-width:340px;text-align:left}
+  /* grid centralizado e cards centralizados */
+  .noites-grid{display:flex;gap:22px;justify-content:center;align-items:stretch;flex-wrap:wrap;max-width:1060px;margin:0 auto}
+  .noite-card{background:var(--card);color:var(--ink);border-radius:12px;padding:22px;box-shadow:0 20px 50px rgba(2,8,23,0.08);min-height:160px;width:320px;text-align:left;display:flex;flex-direction:column;justify-content:flex-start}
   .noite-card h4{font-family:'Playfair Display',serif;color:var(--accent-2);margin-bottom:10px}
+  @media(max-width:980px){.noite-card{width:100%;max-width:640px}}
 
   /* BENEFÍCIOS */
   .benefs{max-width:1100px;margin:44px auto 10px;display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
@@ -109,9 +111,10 @@
 
   @media(max-width:480px){
     .hero-title{font-size:32px}
-    .noite-card{max-width:none}
+    .noite-card{max-width:none;width:100%}
     .float-count{left:10px;width:140px;bottom:22vh}
     .float-whats{right:10px;bottom:10vh}
+    .top-spacer{height:calc(var(--work-h) + 10px)}
   }
 </style>
 </head>
@@ -121,7 +124,6 @@
   <div class="top-bar" id="topBar"><h1>WORKSHOP</h1></div>
   <div class="top-spacer" aria-hidden="true"></div>
 
-  <!-- CONTEÚDO -->
   <main>
     <div class="wrap">
       <!-- HERO -->
@@ -149,11 +151,13 @@
     <!-- PROBLEM -->
     <div class="problem">Se você sente que carrega mágoas, culpa ou ansiedade ao olhar para o ano que passou — este workshop é para fechar 2025 com mais leveza. Venha transformar o peso em presença e recomeçar com intenções claras.</div>
 
-    <!-- TRÊS NOITES centralizado -->
-    <section class="noites-bleed" id="noites">
+    <!-- TRÊS NOITES centralizadas -->
+    <section class="noites-bleed" id="noites" aria-labelledby="noites-title">
       <div class="noites-inner">
-        <h3 class="noites-title">As três noites</h3>
-        <div class="noites-grid" role="list">
+        <h3 class="noites-title" id="noites-title">As três noites</h3>
+
+        <!-- GRID CENTRALIZADO: usa flex para centralizar independentemente do espaço -->
+        <div class="noites-grid" role="list" aria-label="cards das três noites">
           <article class="noite-card" role="listitem">
             <h4>🌙 1ª Noite — O peso que ainda carrego</h4>
             <p>Reconhecer as mágoas, culpas e cobranças que já não cabem mais. Nomear o que dói é o primeiro passo da libertação.</p>
@@ -229,14 +233,14 @@
       </div>
     </section>
 
-    <!-- DEPOIMENTOS (3 criados) -->
+    <!-- DEPOIMENTOS -->
     <section class="testimonials" aria-labelledby="test-title">
       <h3 id="test-title" style="font-family:'Playfair Display',serif;color:var(--accent);text-align:center;margin-bottom:8px">Transformações reais</h3>
-      <p style="text-align:center;color:var(--muted);max-width:880px;margin:0 auto 18px">Histórias de quem participou e saiu com mais leveza — leia e sinta o impacto.</p>
+      <p style="text-align:center;color:var(--muted);max-width:880px;margin:0 auto 18px">Depoimentos de participantes anteriores — substitua por reais quando preferir.</p>
 
       <div class="test-grid">
         <div class="test-card">
-          <p>"Saí das três noites com uma clareza que não esperava. As práticas me ajudaram a entender o que eu carregava e a respirar diferente. Hoje acordo mais leve." </p>
+          <p>"Saí das três noites com uma clareza que não esperava. As práticas me ajudaram a entender o que eu carregava e a respirar diferente. Hoje acordo mais leve."</p>
           <div class="test-author">Mariana R., São Paulo</div>
         </div>
 
@@ -246,20 +250,52 @@
         </div>
 
         <div class="test-card">
-          <p>"Participar foi um presente: curto, objetivo e muito humano. Saí com ferramentas simples que usei no dia a dia para lidar com ansiedade." </p>
+          <p>"Participar foi um presente: curto, objetivo e muito humano. Saí com ferramentas simples que usei no dia a dia para lidar com ansiedade."</p>
           <div class="test-author">Fernanda L., Belo Horizonte</div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (restauradas perguntas importantes) -->
     <section class="faq" aria-labelledby="faq-title">
       <h3 id="faq-title" style="font-family:'Playfair Display',serif;color:var(--accent);text-align:center">Perguntas Frequentes</h3>
       <div style="height:12px"></div>
-      <div class="faq-item" tabindex="0"><h4>Preciso participar das três noites?</h4><p>Recomendamos completar o ciclo, mas é possível participar de forma independente de cada noite.</p></div>
-      <div class="faq-item" tabindex="0"><h4>Haverá gravação?</h4><p>Sim — as gravações podem ficar disponíveis por tempo limitado para inscritos.</p></div>
-      <div class="faq-item" tabindex="0"><h4>Como me inscrevo?</h4><p>Entre no grupo do WhatsApp (botão verde) — lá você confirma e recebe instruções.</p></div>
-      <div class="faq-item" tabindex="0"><h4>Tem custo?</h4><p>Não — o workshop é gratuito.</p></div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>Preciso participar das três noites?</h4>
+        <p>Recomendamos completar o ciclo para a experiência integral, pois cada noite apoia a seguinte. Ainda assim, é possível participar de noites isoladas.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>O que vou vivenciar em cada noite?</h4>
+        <p>1ª noite: reconhecimento do que pesa. 2ª noite: práticas de soltura e autocuidado. 3ª noite: ritual de encerramento e definição de intenções.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>É online e haverá gravação?</h4>
+        <p>O evento é online. As gravações podem ser disponibilizadas por tempo limitado para inscritos; recomendamos participar ao vivo para melhor experiência.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>Como garanto minha vaga?</h4>
+        <p>Entre no grupo de WhatsApp através do botão verde; lá enviaremos confirmação, link das sessões e lembretes antes de cada encontro.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>Preciso participar ao vivo?</h4>
+        <p>Participar ao vivo é recomendado pela interação e práticas em tempo real, mas caso não consiga, buscaremos disponibilizar a gravação.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>É cobrado algum valor?</h4>
+        <p>Não — o workshop é 100% gratuito. Pedimos apenas sua presença e abertura para a experiência.</p>
+      </div>
+
+      <div class="faq-item" tabindex="0">
+        <h4>Tenho dúvidas ou preciso de suporte</h4>
+        <p>Suporte e dúvidas são atendidos no grupo de WhatsApp. Ao entrar, você terá instruções e um canal para perguntar antes e durante o evento.</p>
+      </div>
+
     </section>
 
   </main>
@@ -277,18 +313,18 @@
   <footer class="footer">© 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”</footer>
 
 <script>
-  // grupo
+  // abrir grupo (link fornecido)
   const whatsappGroup = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
   function openGroup(){ window.open(whatsappGroup,'_blank'); }
 
-  // FAQ acordeão
+  // FAQ toggle
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.addEventListener('click', ()=> item.classList.toggle('open'));
-    item.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') { e.preventDefault(); item.classList.toggle('open'); }});
+    item.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); item.classList.toggle('open'); }});
   });
 
-  // countdown para 02 Dez 2025 20:00 (mudar se precisar)
-  const target = new Date(2025,11,2,20,0,0); // mês 11 = Dezembro
+  // countdown para 02 Dez 2025 20:00
+  const target = new Date(2025,11,2,20,0,0);
   function updateCountdown(){
     const now = new Date(); let diff = target - now; const el = document.getElementById('cd-time');
     if(diff <= 0){ el.textContent = 'Começou — veja no grupo'; return; }
@@ -300,7 +336,7 @@
   }
   updateCountdown(); setInterval(updateCountdown,1000);
 
-  // top-bar hide on scroll
+  // top-bar hide on scroll (down hides, up shows)
   (function(){
     const bar = document.getElementById('topBar'); let last = window.scrollY||0, ticking=false;
     window.addEventListener('scroll', ()=>{
