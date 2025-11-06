@@ -326,7 +326,7 @@
 
   <!-- faixa final e copyright -->
   <div class="copyright-band" role="contentinfo">
-    © 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano, quero estar em paz comigo mesmo.”
+    © 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”
   </div>
 
  
