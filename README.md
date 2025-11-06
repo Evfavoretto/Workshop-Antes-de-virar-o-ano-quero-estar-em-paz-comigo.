@@ -7,31 +7,17 @@
   <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* esconder headers automáticos do GitHub Pages (se houver) */
+    /* caso o GitHub adicione header automático */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
-      --maxw:1280px;
       --bg-soft:#EAF4FB;
       --blue-2:#B8E1FF;
       --blue-deep:#0F4C81;
       --blue-dark:#041f3a;
       --muted:#5A6571;
       --card:#FFFFFF;
-      --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
-
-      /* flags mais largas agora */
-      --section-flag-height-desktop:48px;
-      --section-flag-height-tablet:36px;
-      --section-flag-height-mobile:26px;
-
-      /* controls of widths */
-      --section-flag-maxwidth-desktop:calc(100% - 80px); /* mais larga */
-      --section-flag-maxwidth-tablet:calc(100% - 60px);
-      --section-flag-maxwidth-mobile:calc(100% - 28px);
-
-      --hero-padding-x:48px;
-      --hero-min-height:520px;
+      --maxw:1280px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -39,153 +25,164 @@
     body{
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
       -webkit-font-smoothing:antialiased;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(11,76,129,0.03), transparent 6%),
-        linear-gradient(180deg,var(--bg-soft), #FFFFFF 86%);
+      background: linear-gradient(180deg,var(--bg-soft),#fff);
       color:#122034;
+      -webkit-text-size-adjust:100%;
     }
 
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;position:relative;z-index:1}
 
+    /* top navigation (keeps compact) */
     .topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-2),#89CFFD);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
     nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
 
-    /* HERO: ampliei largura do quadro branco e posicionei a faixa azul no topo */
+    /* HERO: quadro branco maior */
     .hero{
-      position:relative;border-radius:18px;
-      background:linear-gradient(180deg, rgba(250,252,255,0.995), rgba(247,249,252,0.995));
-      box-shadow:var(--shadow-lg);
-      padding:0 var(--hero-padding-x) 64px;
-      margin:-70px auto 38px;
-      min-height:var(--hero-min-height);
-      display:flex;flex-direction:column;align-items:center;text-align:center;
-      transform:translateX(-1%); /* ligeiro deslocamento para esquerda */
-      max-width:calc(100% + 240px); /* MAIS LARGO para "empurrar" pra fora e cobrir título do GitHub */
+      position:relative;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:18px;
+      box-shadow:0 30px 80px rgba(4,31,58,0.06);
+      padding:28px 40px 64px;
+      margin:40px auto 48px;
+      max-width:1200px;
       overflow:visible;
+      z-index:2;
     }
 
-    /* FAIXA WORKSHOP — agora mais larga e "lá em cima" */
-    .hero-topbar{
-      position:absolute;
-      top:-28px; /* sobe a faixa para ficar bem no topo do hero */
+    /* FAIXA WORKSHOP full-bleed no topo da viewport (visual full-width) */
+    .full-bleed-top{
+      position:relative;
+      margin-top:-36px; /* empurra a faixa para cima do quadro */
+    }
+    .workshop-bleed{
+      position:relative;
       left:50%;
       transform:translateX(-50%);
-      width:92%; /* largura maior e centralizada */
-      max-width:1200px;
-      background:var(--blue-dark);
-      padding:26px 0;
+      width:100vw; /* full width across viewport */
+      background:linear-gradient(180deg,var(--blue-dark),var(--blue-deep));
+      color:#fff;
+      padding:22px 0;
       text-align:center;
-      z-index:6;
-      border-radius:12px;
-      box-shadow:0 12px 30px rgba(4,31,58,0.14);
-      border-bottom:4px solid rgba(255,255,255,0.03);
+      box-shadow:0 18px 40px rgba(4,31,58,0.14);
+      z-index:5;
     }
-    .hero-topbar h2{
-      color:#fff;font-family:'Playfair Display',serif;font-size:clamp(26px,4.2vw,44px);line-height:1;margin:0;font-weight:700;white-space:nowrap;
-      letter-spacing:.02em;
-    }
+    .workshop-bleed h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3.6vw,40px);margin:0;font-weight:700;letter-spacing:.02em}
 
-    /* Conteúdo do hero */
-    .hero-content{margin-top:60px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:20px 6px}
-    h1.title{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(28px,6vw,64px);
-      line-height:1.02;color:var(--blue-deep);max-width:900px;margin:6px auto 6px;text-align:center;
-    }
-    .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
-    .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:820px;text-align:center}
+    /* hero content centered inside frame */
+    .hero-inner{max-width:920px;margin:18px auto 0;text-align:center}
+    h1.title{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,56px);color:var(--blue-deep);line-height:1.02;margin:8px 0}
+    .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:12px auto}
+    .lead{color:var(--muted);max-width:760px;margin:14px auto 0}
 
-    /* Sections: flags maiores e containers mais largos */
-    section{padding:60px 0}
-    .section-title-wrap{position:relative;margin-bottom:20px;display:flex;align-items:center;justify-content:center;padding-top:8px;padding-bottom:6px}
+    /* SECTION flags full-bleed (mais larga) */
+    section{padding:54px 0}
     .section-flag{
-      position:absolute;left:50%;transform:translateX(-50%);
-      width:100%;height:var(--section-flag-height-desktop);
-      background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
-      max-width:var(--section-flag-maxwidth-desktop); /* agora mais larga */
+      position:relative;
+      left:50%;
+      transform:translateX(-50%);
+      width:100vw; /* full-bleed */
+      height:44px;
+      background:var(--blue-dark);
+      border-radius:6px;
+      margin-bottom:12px;
+      z-index:-1;
     }
-    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:24px;color:#fff;padding:8px 18px;margin:0 auto;background:transparent;line-height:1.02}
+    .section-title{
+      max-width:var(--maxw);
+      margin:-46px auto 18px;
+      padding:8px 18px;
+      font-family:'Playfair Display',serif;
+      font-size:22px;color:#fff;text-align:center;
+    }
 
-    /* aumentar largura dos containers de conteúdo para maior sensação de amplitude */
-    .content-wide{max-width:1100px;margin:0 auto}
-    .objectives{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1200px;margin:0 auto}
-    .objective-card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 34px rgba(15,76,129,0.04);text-align:center}
-    .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
-    .objective-card p{color:var(--muted);line-height:1.6}
+    /* content containers wider */
+    .content-wide{max-width:1200px;margin:0 auto;padding:0 20px}
 
-    /* Tres noites */
-    .grid-3{display:grid;gap:18px;margin-top:12px}
-    @media(min-width:980px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 34px rgba(0,0,0,0.04)}
-    .card h3{font-size:18px;margin:0 0 8px;color:var(--blue-deep)} .card p{color:var(--muted);line-height:1.6}
+    /* three cards */
+    .grid-3{display:grid;gap:18px}
+    @media(min-width:980px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 14px 36px rgba(4,31,58,0.05)}
+    .card h3{color:var(--blue-deep);font-size:18px;margin-bottom:8px}
+    .card p{color:var(--muted);line-height:1.6}
 
-    /* Mentor: aumentar largura e imagem maior */
-    .mentor{display:flex;gap:22px;align-items:center;padding:22px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 14px 40px rgba(0,0,0,0.05);max-width:1200px;margin:0 auto}
-    .mentor img{width:240px;height:240px;border-radius:12px;object-fit:cover;flex-shrink:0}
+    /* objectives grid */
+    .objectives{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:12px}
+
+    /* mentor */
+    .mentor{display:flex;gap:20px;align-items:center;background:var(--card);border-radius:12px;padding:20px;box-shadow:0 16px 40px rgba(4,31,58,0.04);border:1px solid rgba(0,0,0,0.04)}
+    .mentor img{width:260px;height:260px;object-fit:cover;border-radius:12px}
     .mentor .bio{flex:1}
-    .mentor h3{margin:0 0 8px;font-size:22px;color:var(--blue-deep)}
-    .mentor p{margin:0;color:var(--muted);line-height:1.75}
+    .mentor h3{color:var(--blue-deep);margin-bottom:8px}
+    .mentor p{color:var(--muted);line-height:1.7}
 
-    /* FAQ maior largura */
-    .faq{max-width:1100px;margin:0 auto}
-    .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:20px;box-shadow:0 10px 26px rgba(15,76,129,0.05);margin-bottom:14px;cursor:pointer;outline:none;border-left:6px solid rgba(15,76,129,0.06)}
-    .faq-item:hover{box-shadow:0 14px 30px rgba(15,76,129,0.08);border-left-color:var(--blue-deep)}
-    .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif;font-size:17px}
-    .faq-item p{margin-top:10px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
-    .faq-item.open p{max-height:560px;padding-top:8px}
+    /* FAQ */
+    .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:18px;box-shadow:0 12px 30px rgba(4,31,58,0.04);margin-bottom:12px;cursor:pointer;border-left:6px solid rgba(15,76,129,0.06)}
+    .faq-item h4{font-family:'Playfair Display',serif;color:var(--blue-deep);margin:0}
+    .faq-item p{color:var(--muted);margin-top:10px;max-height:0;overflow:hidden;transition:max-height .36s ease;padding:0}
+    .faq-item.open p{max-height:420px;padding-top:8px}
 
-    /* Para quem é / nao é mais largo */
-    .who-grid{display:grid;gap:22px;grid-template-columns:1fr 1fr;max-width:1200px;margin:18px auto 0}
-    @media(max-width:980px){.who-grid{grid-template-columns:1fr}}
-    .who-box{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.03)}
-    .who-box h4{margin:0 0 8px;font-family:'Playfair Display',serif;color:var(--blue-deep)}
-    .who-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
+    /* who boxes */
+    .who-grid{display:grid;gap:20px;grid-template-columns:1fr 1fr}
+    @media(max-width:980px){ .who-grid{grid-template-columns:1fr} }
+    .who-box{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 12px 30px rgba(4,31,58,0.03)}
 
-    /* CONTAGEM e WHATSAPP */
-    .countdown-float{position:fixed;left:18px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:14px 18px;border-radius:12px;font-weight:800;box-shadow:0 24px 50px rgba(15,76,129,0.24);z-index:1004;text-align:center}
+    /* floating controls (now smooth-follow) */
+    .countdown-float, .whatsapp-float{
+      position:fixed;right:18px;z-index:9999;border-radius:12px;box-shadow:0 20px 46px rgba(4,31,58,0.18);
+      transition:top 280ms cubic-bezier(.22,.98,.26,1), transform 200ms ease;
+      will-change:top;
+    }
+
+    .countdown-float{left:18px;right:auto;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:14px 18px;font-weight:800;text-align:center}
     .countdown-float .time{font-size:18px}
-    .countdown-float .label{font-size:13px;opacity:.95;margin-top:6px}
+    .countdown-float .label{font-size:13px;margin-top:6px;opacity:.95}
 
-    .whatsapp-float{position:fixed;right:18px;top:50%;transform:translateY(-50%);background:#25D366;color:#fff;border-radius:999px;padding:12px 18px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer}
+    .whatsapp-float{right:18px;left:auto;background:#25D366;color:#fff;padding:12px 18px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:10px}
+    .whatsapp-float:active{transform:translateY(1px)}
+    .whatsapp-float small{font-weight:600}
 
-    /* mobile */
+    /* footer band full-bleed */
+    .footer-bleed{
+      width:100vw;left:50%;transform:translateX(-50%);
+      background:var(--blue-dark);color:#fff;padding:14px 20px;text-align:center;position:relative;margin-top:40px;
+    }
+
+    /* responsive adjustments */
     @media(max-width:980px){
-      :root{
-        --hero-padding-x:28px;
-      }
-      .hero{padding:0 var(--hero-padding-x) 48px;margin:-48px 12px 28px;min-height:420px;max-width:calc(100% + 40px)}
-      .hero-topbar{position:relative;top:0;left:50%;transform:translateX(-50%);width:86%;max-width:920px;padding:18px;border-radius:12px}
-      .hero-topbar h2{font-size:24px;white-space:normal}
-      .hero-content{margin-top:42px}
-      /* flags responsivas */
-      .section-flag{max-width:var(--section-flag-maxwidth-tablet);height:var(--section-flag-height-tablet}
-      .section-title{font-size:20px}
-      .objectives{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:920px}
-      .who-grid{grid-template-columns:1fr;max-width:920px}
-      .mentor{flex-direction:column;align-items:center;max-width:920px}
-      .mentor img{width:100%;height:auto;max-width:360px}
-      .faq{max-width:920px}
-      .countdown-float{left:14px;bottom:140px;top:auto;transform:none}
-      .whatsapp-float{right:14px;bottom:18px;top:auto;transform:none}
+      .hero{padding:22px 20px 48px;margin:18px 12px 28px}
+      .hero-inner{padding:0 8px}
+      h1.title{font-size:clamp(22px,6.5vw,36px)}
+      .workshop-bleed h2{font-size:20px}
+      .mentor{flex-direction:column;align-items:center}
+      .mentor img{width:100%;max-width:340px;height:auto}
+      .countdown-float{left:14px;right:auto;bottom:140px;top:auto}
+      .whatsapp-float{right:14px;left:auto;bottom:18px;top:auto}
+      .section-flag{height:30px}
+      .section-title{margin-top:-36px}
+      .who-grid{grid-template-columns:1fr;gap:14px}
+      .objectives{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     }
 
     @media(max-width:420px){
-      .hero-topbar h2{font-size:20px}
-      h1.title{font-size:22px}
-      .section-flag{max-width:var(--section-flag-maxwidth-mobile);height:var(--section-flag-height-mobile)}
-      .countdown-float{bottom:110px;padding:10px 12px}
-      .whatsapp-float{padding:10px 12px;font-size:14px}
-      .hero{margin:-40px 8px 20px}
-      .objectives{gap:12px}
+      .hero{margin:14px 8px 18px}
+      .workshop-bleed h2{font-size:18px}
+      .section-flag{height:22px}
+      .section-title{font-size:18px;margin-top:-32px}
+      .countdown-float{bottom:110px}
+      .whatsapp-float{bottom:12px;padding:10px 14px}
     }
-
-    .copyright-band{width:100%;background:var(--blue-dark);color:#fff;padding:12px 0;text-align:center;box-shadow:0 -6px 20px rgba(7,42,73,0.06);font-size:14px}
-    footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
+  <div class="full-bleed-top">
+    <!-- full-bleed workshop strip -->
+    <div class="workshop-bleed" aria-hidden="true">
+      <h2>WORKSHOP</h2>
+    </div>
+  </div>
+
   <div class="wrap">
     <header class="topbar" aria-hidden="true">
       <div class="brand">
@@ -200,85 +197,69 @@
       </nav>
     </header>
 
-    <!-- HERO -->
     <main class="hero" role="main" aria-labelledby="hero-title">
-      <div class="hero-topbar" aria-hidden="true">
-        <h2>WORKSHOP</h2>
-      </div>
-
-      <div class="hero-content">
+      <div class="hero-inner">
         <h1 id="hero-title" class="title">Antes de virar o ano, quero estar em paz comigo.</h1>
         <div class="underline" aria-hidden="true"></div>
-        <p class="title-sub">Dias 2, 3 e 4 de dezembro • às 20h — três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes de entrar em 2026.</p>
+        <p class="lead">Dias 2, 3 e 4 de dezembro • às 20h — três noites para encerrar 2025 com leveza, soltar o que pesa e se reencontrar consigo mesma antes de entrar em 2026.</p>
       </div>
     </main>
 
-    <!-- AS TRÊS NOITES -->
+    <!-- AS TRÊS NOITES (flag full-bleed) -->
     <section id="noites" aria-labelledby="noites-title">
-      <div class="section-title-wrap" aria-hidden="true">
-        <div class="section-flag" aria-hidden="true"></div>
-        <h2 id="noites-title" class="section-title">As três noites</h2>
-      </div>
+      <div class="section-flag" aria-hidden="true"></div>
+      <h2 id="noites-title" class="section-title">As três noites</h2>
 
-      <div class="grid-3 content-wide" style="margin-top:12px">
+      <div class="content-wide grid-3" style="margin-top:18px">
         <article class="card"><h3>🌙 1ª Noite — O peso que ainda carrego</h3><p>Reconheça o que está tirando sua paz: mágoas, culpas e cobranças que já não cabem mais. Nomear para começar a libertar.</p></article>
-        <article class="card"><h3>💚 2ª Noite — Quando soltar é cuidar</h3><p>Exercícios e práticas para soltar controle, acolher limites e aprender que cuidar também é pausar.</p></article>
+        <article class="card"><h3>💚 2ª Noite — Quando soltar é cuidar</h3><p>Exercícios práticos para soltar o controle, acolher limites e aprender que cuidar também é pausar.</p></article>
         <article class="card"><h3>✨ 3ª Noite — O recomeço que nasce da paz</h3><p>Ritual de encerramento: transformar o vivido em sabedoria e definir intenções para 2026.</p></article>
       </div>
     </section>
 
-    <!-- OBJETIVOS -->
+    <!-- OBJETIVOS (flag full-bleed) -->
     <section id="objetivos" aria-labelledby="obj-title">
-      <div class="section-title-wrap">
-        <div class="section-flag" aria-hidden="true"></div>
-        <h2 id="obj-title" class="section-title">Objetivos do Workshop</h2>
-      </div>
+      <div class="section-flag" aria-hidden="true"></div>
+      <h2 id="obj-title" class="section-title">Objetivos do Workshop</h2>
 
-      <div class="objectives">
-        <div class="objective-card"><h3>Reconhecer o que pesa</h3><p>Identificar emoções e padrões que atrapalham sua paz.</p></div>
-        <div class="objective-card"><h3>Aprender a soltar</h3><p>Ferramentas práticas para libertar ansiedade, culpa e cobranças.</p></div>
-        <div class="objective-card"><h3>Recomeçar com intenção</h3><p>Definir ações e intenções suaves para entrar em 2026 com mais clareza e leveza.</p></div>
+      <div class="content-wide objectives">
+        <div class="card objective-card"><h3>Reconhecer o que pesa</h3><p>Identificar emoções e padrões que atrapalham sua paz.</p></div>
+        <div class="card objective-card"><h3>Aprender a soltar</h3><p>Ferramentas práticas para libertar ansiedade, culpa e cobranças.</p></div>
+        <div class="card objective-card"><h3>Recomeçar com intenção</h3><p>Definir ações e intenções suaves para entrar em 2026 com mais clareza e leveza.</p></div>
       </div>
     </section>
 
     <!-- PARA QUEM -->
     <section id="para-quem" aria-labelledby="who-title">
-      <div class="section-title-wrap" style="margin-bottom:12px">
-        <div class="section-flag" aria-hidden="true"></div>
-        <h2 id="who-title" class="section-title">Para quem é / Para quem não é</h2>
-      </div>
+      <div class="section-flag" aria-hidden="true"></div>
+      <h2 id="who-title" class="section-title">Para quem é / Para quem não é</h2>
 
-      <div class="who-grid">
-        <div class="who-box">
-          <h4>Para quem é</h4>
+      <div class="content-wide who-grid" style="margin-top:18px">
+        <div class="who-box"><h4>Para quem é</h4>
           <ul>
             <li>Pessoas que querem fechar o ano com clareza emocional e leveza.</li>
             <li>Quem busca um processo guiado, humano e prático.</li>
-            <li>Quem está disposto(a) a reservar ~1h nas três noites e participar ativamente.</li>
+            <li>Quem está disposto(a) a reservar ~1h nas três noites.</li>
             <li>Pessoas abertas a práticas de introspecção e rituais de encerramento.</li>
           </ul>
         </div>
-
-        <div class="who-box">
-          <h4>Para quem não é</h4>
+        <div class="who-box"><h4>Para quem não é</h4>
           <ul>
             <li>Quem procura fórmulas mágicas ou soluções instantâneas sem participação.</li>
-            <li>Quem não quer reservar tempo para estar presente nas três noites.</li>
-            <li>Quem não está disposto(a) a olhar para emoções ou a sentir para compreender.</li>
-            <li>Quem espera resultado sem investimento pessoal (presença e prática).</li>
+            <li>Quem não pode reservar tempo nas três noites.</li>
+            <li>Quem não está disposto(a) a olhar para emoções.</li>
+            <li>Quem deseja resultado sem investimento pessoal.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- MENTOR -->
+    <!-- MENTOR (flag full-bleed) -->
     <section id="mentor" aria-labelledby="mentor-title">
-      <div class="section-title-wrap" style="margin-bottom:8px">
-        <div class="section-flag" aria-hidden="true"></div>
-        <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
-      </div>
+      <div class="section-flag" aria-hidden="true"></div>
+      <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
 
-      <div class="mentor content-wide" role="region" aria-label="Mentor">
+      <div class="content-wide mentor" style="margin-top:18px">
         <img src="Mentor.jpeg" alt="Evandro Favoretto — mentor do workshop">
         <div class="bio">
           <h3>Evandro Favoretto</h3>
@@ -287,57 +268,56 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (flag full-bleed) -->
     <section id="faq" aria-labelledby="faq-title">
-      <div class="section-title-wrap" style="margin-bottom:12px">
-        <div class="section-flag" aria-hidden="true"></div>
-        <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
-      </div>
+      <div class="section-flag" aria-hidden="true"></div>
+      <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
 
-      <div class="faq">
-        <div class="faq-item" tabindex="0"><h4>Para quem é o Workshop?</h4><p>Para quem busca clareza emocional e sistêmica para decidir com mais segurança, e deseja um processo guiado, humano e direto ao ponto.</p></div>
-        <div class="faq-item" tabindex="0"><h4>Preciso participar ao vivo?</h4><p>É recomendado para aproveitar as práticas e a energia do grupo. Haverá gravação para quem não puder assistir ao vivo (acesso por tempo limitado).</p></div>
-        <div class="faq-item" tabindex="0"><h4>O evento é gratuito?</h4><p>Sim. O workshop é gratuito — a inscrição e o link do encontro são compartilhados no grupo do WhatsApp.</p></div>
-        <div class="faq-item" tabindex="0"><h4>Como faço a inscrição?</h4><p>Clique em “Entrar no grupo” (botão verde) para acessar o grupo de organização e receber os links e materiais.</p></div>
-        <div class="faq-item" tabindex="0"><h4>Tenho dúvidas ou preciso de suporte</h4><p>Haverá suporte via grupo do WhatsApp e mensagens antes de cada encontro com orientações práticas.</p></div>
+      <div class="content-wide" style="margin-top:18px">
+        <div class="faq-item" tabindex="0"><h4>Para quem é o Workshop?</h4><p>Para quem busca clareza emocional e sistêmica para decidir com mais segurança e quer um processo guiado, humano e direto ao ponto.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Preciso participar ao vivo?</h4><p>É recomendado — haverá gravação por tempo limitado para quem não puder assistir ao vivo.</p></div>
+        <div class="faq-item" tabindex="0"><h4>O evento é gratuito?</h4><p>Sim — a inscrição e o link são divulgados no grupo do WhatsApp.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Como faço a inscrição?</h4><p>Clique no botão “Entrar no grupo” para acessar o grupo e receber os links e orientações.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Tenho dúvidas ou preciso de suporte</h4><p>Suporte via grupo do WhatsApp e mensagens antes de cada encontro.</p></div>
       </div>
     </section>
 
-  </div> <!-- /.wrap -->
+  </div> <!-- .wrap -->
 
-  <div class="copyright-band" role="contentinfo">
+  <!-- footer full-bleed azul forte -->
+  <div class="footer-bleed" role="contentinfo">
     © 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”
   </div>
 
-
-
-  <!-- contagem e whatsapp -->
-  <div class="countdown-float" id="countdown" role="status" aria-live="polite">
+  <!-- floating countdown & whatsapp (seguir rolagem) -->
+  <div class="countdown-float" id="countdown" aria-live="polite" role="status" style="top:160px">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
-    <div class="time" id="cd-time">-- dias — --:--:--</div>
+    <div class="time" id="cd-time">--d — --:--:--</div>
     <div class="label">02 Dez • 20h</div>
   </div>
 
-  <button class="whatsapp-float" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp">Entrar no grupo</button>
+  <button class="whatsapp-float" id="whatsBtn" onclick="openGroup()" aria-label="Entrar no grupo do WhatsApp" style="top:220px">
+    Entrar no grupo
+  </button>
 
   <script>
+    // abrir grupo
     const whatsappGroupUrl = 'https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp';
     function openGroup(){ window.open(whatsappGroupUrl,'_blank'); }
 
-    // FAQ toggle (click + keyboard)
+    // FAQ toggle
     document.querySelectorAll('.faq-item').forEach(item=>{
       function toggle(){ item.classList.toggle('open'); }
       item.addEventListener('click', toggle);
       item.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); } });
     });
 
-    // Contagem regressiva (02 Dez 2025 20:00 local)
+    // COUNTDOWN
     const targetDate = new Date(2025,11,2,20,0,0);
     function updateCountdown(){
       const now = new Date();
       let diff = targetDate - now;
       const el = document.getElementById('cd-time');
-      if(!el) return;
       if(diff <= 0){ el.textContent = "Começou — veja no grupo"; return; }
       const days = Math.floor(diff / (1000*60*60*24));
       diff -= days * (1000*60*60*24);
@@ -349,6 +329,42 @@
       el.textContent = `${days}d — ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
     }
     updateCountdown(); setInterval(updateCountdown,1000);
+
+    // floating follow: move controls as user scrolls (smooth-ish)
+    (function(){
+      const cd = document.getElementById('countdown');
+      const wbtn = document.getElementById('whatsBtn');
+      if(!cd || !wbtn) return;
+
+      // initial offsets
+      const startTopCd = 140; // px from top at start
+      const startTopBtn = 200;
+
+      // speed factor (how fast they move down with scroll). tweak as needed (0.15..0.35)
+      const speed = 0.18;
+
+      let ticking = false;
+      function onScroll(){
+        if(ticking) return;
+        ticking = true;
+        requestAnimationFrame(()=> {
+          const s = window.scrollY || window.pageYOffset;
+          // compute new top but clamp so it stays within viewport nicely
+          const vh = window.innerHeight || document.documentElement.clientHeight;
+          // vertical position increases as you scroll down, but limited so doesn't go off-screen
+          const newTopCd = Math.min(vh - 180, startTopCd + s * speed);
+          const newTopBtn = Math.min(vh - 90, startTopBtn + s * speed);
+          cd.style.top = Math.max(12, Math.round(newTopCd)) + 'px';
+          wbtn.style.top = Math.max(60, Math.round(newTopBtn)) + 'px';
+          ticking = false;
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('resize', ()=> { /* recalc on resize if needed */ }, {passive:true});
+      // run once to position
+      onScroll();
+    })();
   </script>
 </body>
 </html>
