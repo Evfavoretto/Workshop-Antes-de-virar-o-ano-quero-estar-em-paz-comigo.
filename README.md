@@ -7,11 +7,11 @@
   <meta name="description" content="Três noites (2, 3 e 4 de dezembro • 20h) para encerrar 2025 com leveza e entrar em 2026 com mais paz." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* esconder cabeçalhos automáticos do GitHub Pages (se houver) */
+    /* esconder headers automáticos do GitHub Pages (se houver) */
     header, .page-header, .site-header, .project-name, .project-tagline { display:none !important; }
 
     :root{
-      --maxw:1200px;
+      --maxw:1280px;
       --bg-soft:#EAF4FB;
       --blue-2:#B8E1FF;
       --blue-deep:#0F4C81;
@@ -20,10 +20,15 @@
       --card:#FFFFFF;
       --shadow-lg:0 30px 60px rgba(15,76,129,0.08);
 
-      /* ajuste global das faixas das seções */
-      --section-flag-height-desktop:40px;
-      --section-flag-height-tablet:32px;
-      --section-flag-height-mobile:22px;
+      /* flags mais largas agora */
+      --section-flag-height-desktop:48px;
+      --section-flag-height-tablet:36px;
+      --section-flag-height-mobile:26px;
+
+      /* controls of widths */
+      --section-flag-maxwidth-desktop:calc(100% - 80px); /* mais larga */
+      --section-flag-maxwidth-tablet:calc(100% - 60px);
+      --section-flag-maxwidth-mobile:calc(100% - 28px);
 
       --hero-padding-x:48px;
       --hero-min-height:520px;
@@ -47,140 +52,135 @@
     .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-2),#89CFFD);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
     nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
 
-    /* HERO */
+    /* HERO: ampliei largura do quadro branco e posicionei a faixa azul no topo */
     .hero{
       position:relative;border-radius:18px;
-      background:linear-gradient(180deg, rgba(250,252,255,0.99), rgba(247,249,252,0.98));
+      background:linear-gradient(180deg, rgba(250,252,255,0.995), rgba(247,249,252,0.995));
       box-shadow:var(--shadow-lg);
       padding:0 var(--hero-padding-x) 64px;
       margin:-70px auto 38px;
       min-height:var(--hero-min-height);
-      display:flex;flex-direction:column;align-items:center;text-align:center;transform:translateX(-2%);max-width:calc(100% + 160px);overflow:visible;
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+      transform:translateX(-1%); /* ligeiro deslocamento para esquerda */
+      max-width:calc(100% + 240px); /* MAIS LARGO para "empurrar" pra fora e cobrir título do GitHub */
+      overflow:visible;
     }
 
-    /* FAIXA WORKSHOP (topo) */
+    /* FAIXA WORKSHOP — agora mais larga e "lá em cima" */
     .hero-topbar{
-      width:120%;background:var(--blue-dark);padding:26px 0;text-align:center;position:relative;z-index:3;
-      transform:translateX(-2%);border-top-left-radius:18px;border-top-right-radius:18px;box-shadow:none;border-bottom:none;
+      position:absolute;
+      top:-28px; /* sobe a faixa para ficar bem no topo do hero */
+      left:50%;
+      transform:translateX(-50%);
+      width:92%; /* largura maior e centralizada */
+      max-width:1200px;
+      background:var(--blue-dark);
+      padding:26px 0;
+      text-align:center;
+      z-index:6;
+      border-radius:12px;
+      box-shadow:0 12px 30px rgba(4,31,58,0.14);
+      border-bottom:4px solid rgba(255,255,255,0.03);
     }
     .hero-topbar h2{
-      color:#fff;font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,48px);line-height:1;margin:0;font-weight:700;white-space:nowrap;
+      color:#fff;font-family:'Playfair Display',serif;font-size:clamp(26px,4.2vw,44px);line-height:1;margin:0;font-weight:700;white-space:nowrap;
       letter-spacing:.02em;
     }
 
-    .hero-content{margin-top:18px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:0 6px}
+    /* Conteúdo do hero */
+    .hero-content{margin-top:60px;display:flex;flex-direction:column;align-items:center;z-index:5;padding:20px 6px}
     h1.title{
       font-family:'Playfair Display',serif;
-      font-size:clamp(30px,6vw,64px);
-      line-height:1.02;color:var(--blue-deep);max-width:820px;margin:6px auto 6px;text-align:center;
+      font-size:clamp(28px,6vw,64px);
+      line-height:1.02;color:var(--blue-deep);max-width:900px;margin:6px auto 6px;text-align:center;
     }
     .underline{width:220px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));margin:10px auto 0}
-    .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px;text-align:center}
+    .title-sub{margin-top:12px;color:var(--muted);font-size:15px;max-width:820px;text-align:center}
 
-    /* Sections: faixa escura de fundo + título em branco (garantir espaço e não recortar) */
-    section{padding:48px 0}
-    .section-title-wrap{
-      position:relative;
-      margin-bottom:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      /* garante espaço extra acima e abaixo para não haver recorte */
-      padding-top:12px;
-      padding-bottom:6px;
-    }
-
-    /* flag responsiva */
+    /* Sections: flags maiores e containers mais largos */
+    section{padding:60px 0}
+    .section-title-wrap{position:relative;margin-bottom:20px;display:flex;align-items:center;justify-content:center;padding-top:8px;padding-bottom:6px}
     .section-flag{
       position:absolute;left:50%;transform:translateX(-50%);
-      width:100%;height:var(--section-flag-height-desktop);background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
-      max-width:calc(100% - 120px);
+      width:100%;height:var(--section-flag-height-desktop);
+      background:var(--blue-dark);border-radius:10px;z-index:0;opacity:1;
+      max-width:var(--section-flag-maxwidth-desktop); /* agora mais larga */
     }
+    .section-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:24px;color:#fff;padding:8px 18px;margin:0 auto;background:transparent;line-height:1.02}
 
-    .section-title{
-      position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:22px;color:#fff;padding:8px 16px;margin:0 auto;background:transparent;
-      line-height:1;
-      white-space:normal; /* permite wrapping sem recortar */
-    }
-
-    /* GRID / CARDS */
-    .objectives{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px;margin:0 auto}
-    .objective-card{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.04);text-align:center}
+    /* aumentar largura dos containers de conteúdo para maior sensação de amplitude */
+    .content-wide{max-width:1100px;margin:0 auto}
+    .objectives{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1200px;margin:0 auto}
+    .objective-card{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 34px rgba(15,76,129,0.04);text-align:center}
     .objective-card h3{font-family:'Playfair Display',serif;color:var(--blue-deep);margin-bottom:8px}
     .objective-card p{color:var(--muted);line-height:1.6}
 
-    .grid-3{display:grid;gap:18px;margin-top:8px}
-    @media(min-width:860px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.03)}
+    /* Tres noites */
+    .grid-3{display:grid;gap:18px;margin-top:12px}
+    @media(min-width:980px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 34px rgba(0,0,0,0.04)}
     .card h3{font-size:18px;margin:0 0 8px;color:var(--blue-deep)} .card p{color:var(--muted);line-height:1.6}
 
-    /* Mentor */
-    .mentor{display:flex;gap:18px;align-items:center;padding:18px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.04);max-width:1100px;margin:0 auto}
-    .mentor img{width:200px;height:200px;border-radius:10px;object-fit:cover}
+    /* Mentor: aumentar largura e imagem maior */
+    .mentor{display:flex;gap:22px;align-items:center;padding:22px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 14px 40px rgba(0,0,0,0.05);max-width:1200px;margin:0 auto}
+    .mentor img{width:240px;height:240px;border-radius:12px;object-fit:cover;flex-shrink:0}
     .mentor .bio{flex:1}
-    .mentor h3{margin:0 0 8px;font-size:20px;color:var(--blue-deep)}
-    .mentor p{margin:0;color:var(--muted);line-height:1.6}
+    .mentor h3{margin:0 0 8px;font-size:22px;color:var(--blue-deep)}
+    .mentor p{margin:0;color:var(--muted);line-height:1.75}
 
-    /* FAQ */
-    .faq{max-width:900px;margin:0 auto}
-    .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:16px;box-shadow:0 8px 20px rgba(15,76,129,0.05);margin-bottom:12px;cursor:pointer;outline:none;border-left:4px solid rgba(15,76,129,0.06)}
-    .faq-item:hover{box-shadow:0 12px 26px rgba(15,76,129,0.08);border-left-color:var(--blue-deep)}
-    .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif;font-size:16px}
-    .faq-item p{margin-top:10px;color:var(--muted);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
-    .faq-item.open p{max-height:420px;padding-top:8px}
+    /* FAQ maior largura */
+    .faq{max-width:1100px;margin:0 auto}
+    .faq-item{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:20px;box-shadow:0 10px 26px rgba(15,76,129,0.05);margin-bottom:14px;cursor:pointer;outline:none;border-left:6px solid rgba(15,76,129,0.06)}
+    .faq-item:hover{box-shadow:0 14px 30px rgba(15,76,129,0.08);border-left-color:var(--blue-deep)}
+    .faq-item h4{margin:0;color:var(--blue-deep);font-family:'Playfair Display',serif;font-size:17px}
+    .faq-item p{margin-top:10px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .36s ease,padding .36s ease}
+    .faq-item.open p{max-height:560px;padding-top:8px}
 
-    /* Para quem é / nao é */
-    .who-grid{display:grid;gap:18px;grid-template-columns:1fr 1fr;max-width:1100px;margin:18px auto 0}
-    @media(max-width:880px){.who-grid{grid-template-columns:1fr}}
-    .who-box{background:var(--card);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(15,76,129,0.03)}
+    /* Para quem é / nao é mais largo */
+    .who-grid{display:grid;gap:22px;grid-template-columns:1fr 1fr;max-width:1200px;margin:18px auto 0}
+    @media(max-width:980px){.who-grid{grid-template-columns:1fr}}
+    .who-box{background:var(--card);border-radius:12px;padding:22px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(15,76,129,0.03)}
     .who-box h4{margin:0 0 8px;font-family:'Playfair Display',serif;color:var(--blue-deep)}
-    .who-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
+    .who-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
 
-    /* CONTAGEM e WHATSAPP - desktop: vertical central; mobile: bottom area */
-    .countdown-float{
-      position:fixed;left:18px;top:50%;transform:translateY(-50%);
-      background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:0 20px 46px rgba(15,76,129,0.22);z-index:1004;text-align:center;
-    }
-    .countdown-float .time{font-size:16px}
-    .countdown-float .label{font-size:12px;opacity:.95;margin-top:6px}
+    /* CONTAGEM e WHATSAPP */
+    .countdown-float{position:fixed;left:18px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-2));color:#fff;padding:14px 18px;border-radius:12px;font-weight:800;box-shadow:0 24px 50px rgba(15,76,129,0.24);z-index:1004;text-align:center}
+    .countdown-float .time{font-size:18px}
+    .countdown-float .label{font-size:13px;opacity:.95;margin-top:6px}
 
-    .whatsapp-float{
-      position:fixed;right:18px;top:50%;transform:translateY(-50%);
-      background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer;
-    }
+    .whatsapp-float{position:fixed;right:18px;top:50%;transform:translateY(-50%);background:#25D366;color:#fff;border-radius:999px;padding:12px 18px;font-weight:800;box-shadow:0 20px 46px rgba(0,0,0,0.18);z-index:1005;display:flex;gap:10px;align-items:center;font-size:15px;border:0;cursor:pointer}
 
-    /* mobile tweaks */
-    @media(max-width:880px){
+    /* mobile */
+    @media(max-width:980px){
       :root{
-        --hero-padding-x:20px;
-        --hero-min-height:420px;
+        --hero-padding-x:28px;
       }
-
-      .hero{padding:0 var(--hero-padding-x) 48px;margin:-48px 12px 28px;min-height:var(--hero-min-height)}
-      .hero-topbar{transform:translateX(0);width:100%;padding:18px 0;border-radius:12px 12px 0 0}
-      .hero-topbar h2{font-size:28px;white-space:normal;text-align:center}
-      h1.title{font-size:clamp(24px,7vw,40px);padding:0 8px}
-      .section-flag{height:var(--section-flag-height-tablet);max-width:calc(100% - 40px)}
-      .section-title{font-size:18px;padding:6px 12px}
-      .countdown-float{left:12px;top:auto;bottom:120px;transform:none}
-      .whatsapp-float{right:12px;top:auto;bottom:18px;transform:none}
-      .who-grid{grid-template-columns:1fr}
-      .mentor{flex-direction:column;align-items:center}
-      .mentor img{width:100%;height:auto;max-width:320px}
-      .faq-item h4{font-size:15px}
+      .hero{padding:0 var(--hero-padding-x) 48px;margin:-48px 12px 28px;min-height:420px;max-width:calc(100% + 40px)}
+      .hero-topbar{position:relative;top:0;left:50%;transform:translateX(-50%);width:86%;max-width:920px;padding:18px;border-radius:12px}
+      .hero-topbar h2{font-size:24px;white-space:normal}
+      .hero-content{margin-top:42px}
+      /* flags responsivas */
+      .section-flag{max-width:var(--section-flag-maxwidth-tablet);height:var(--section-flag-height-tablet}
+      .section-title{font-size:20px}
+      .objectives{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:920px}
+      .who-grid{grid-template-columns:1fr;max-width:920px}
+      .mentor{flex-direction:column;align-items:center;max-width:920px}
+      .mentor img{width:100%;height:auto;max-width:360px}
+      .faq{max-width:920px}
+      .countdown-float{left:14px;bottom:140px;top:auto;transform:none}
+      .whatsapp-float{right:14px;bottom:18px;top:auto;transform:none}
     }
 
-    /* extra small */
     @media(max-width:420px){
-      .section-flag{height:var(--section-flag-height-mobile);max-width:calc(100% - 24px)}
-      .hero{margin:-40px 8px 18px}
-      .countdown-float{bottom:110px;padding:10px 12px}
-      .whatsapp-float{padding:10px 12px;font-size:14px}
       .hero-topbar h2{font-size:20px}
       h1.title{font-size:22px}
+      .section-flag{max-width:var(--section-flag-maxwidth-mobile);height:var(--section-flag-height-mobile)}
+      .countdown-float{bottom:110px;padding:10px 12px}
+      .whatsapp-float{padding:10px 12px;font-size:14px}
+      .hero{margin:-40px 8px 20px}
+      .objectives{gap:12px}
     }
 
-    /* final band */
     .copyright-band{width:100%;background:var(--blue-dark);color:#fff;padding:12px 0;text-align:center;box-shadow:0 -6px 20px rgba(7,42,73,0.06);font-size:14px}
     footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
   </style>
@@ -213,14 +213,14 @@
       </div>
     </main>
 
-    <!-- TRÊS NOITES -->
+    <!-- AS TRÊS NOITES -->
     <section id="noites" aria-labelledby="noites-title">
       <div class="section-title-wrap" aria-hidden="true">
         <div class="section-flag" aria-hidden="true"></div>
         <h2 id="noites-title" class="section-title">As três noites</h2>
       </div>
 
-      <div class="grid-3" style="margin-top:8px">
+      <div class="grid-3 content-wide" style="margin-top:12px">
         <article class="card"><h3>🌙 1ª Noite — O peso que ainda carrego</h3><p>Reconheça o que está tirando sua paz: mágoas, culpas e cobranças que já não cabem mais. Nomear para começar a libertar.</p></article>
         <article class="card"><h3>💚 2ª Noite — Quando soltar é cuidar</h3><p>Exercícios e práticas para soltar controle, acolher limites e aprender que cuidar também é pausar.</p></article>
         <article class="card"><h3>✨ 3ª Noite — O recomeço que nasce da paz</h3><p>Ritual de encerramento: transformar o vivido em sabedoria e definir intenções para 2026.</p></article>
@@ -278,7 +278,7 @@
         <h2 id="mentor-title" class="section-title">Conheça seu mentor</h2>
       </div>
 
-      <div class="mentor" role="region" aria-label="Mentor">
+      <div class="mentor content-wide" role="region" aria-label="Mentor">
         <img src="Mentor.jpeg" alt="Evandro Favoretto — mentor do workshop">
         <div class="bio">
           <h3>Evandro Favoretto</h3>
@@ -294,44 +294,24 @@
         <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
       </div>
 
-      <div class="faq" role="list">
-        <div class="faq-item" role="listitem" tabindex="0">
-          <h4>Para quem é o Workshop?</h4>
-          <p>Para quem busca clareza emocional e sistêmica para decidir com mais segurança, e deseja um processo guiado, humano e direto ao ponto.</p>
-        </div>
-
-        <div class="faq-item" role="listitem" tabindex="0">
-          <h4>Preciso participar ao vivo?</h4>
-          <p>É recomendado para aproveitar as práticas e a energia do grupo. Haverá gravação para quem não puder assistir ao vivo (acesso por tempo limitado).</p>
-        </div>
-
-        <div class="faq-item" role="listitem" tabindex="0">
-          <h4>O evento é gratuito?</h4>
-          <p>Sim. O workshop é gratuito — a inscrição e o link do encontro são compartilhados no grupo do WhatsApp.</p>
-        </div>
-
-        <div class="faq-item" role="listitem" tabindex="0">
-          <h4>Como faço a inscrição?</h4>
-          <p>Clique em “Entrar no grupo” (botão verde) para acessar o grupo de organização e receber os links e materiais.</p>
-        </div>
-
-        <div class="faq-item" role="listitem" tabindex="0">
-          <h4>Tenho dúvidas ou preciso de suporte</h4>
-          <p>Haverá suporte via grupo do WhatsApp e mensagens antes de cada encontro com orientações práticas.</p>
-        </div>
+      <div class="faq">
+        <div class="faq-item" tabindex="0"><h4>Para quem é o Workshop?</h4><p>Para quem busca clareza emocional e sistêmica para decidir com mais segurança, e deseja um processo guiado, humano e direto ao ponto.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Preciso participar ao vivo?</h4><p>É recomendado para aproveitar as práticas e a energia do grupo. Haverá gravação para quem não puder assistir ao vivo (acesso por tempo limitado).</p></div>
+        <div class="faq-item" tabindex="0"><h4>O evento é gratuito?</h4><p>Sim. O workshop é gratuito — a inscrição e o link do encontro são compartilhados no grupo do WhatsApp.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Como faço a inscrição?</h4><p>Clique em “Entrar no grupo” (botão verde) para acessar o grupo de organização e receber os links e materiais.</p></div>
+        <div class="faq-item" tabindex="0"><h4>Tenho dúvidas ou preciso de suporte</h4><p>Haverá suporte via grupo do WhatsApp e mensagens antes de cada encontro com orientações práticas.</p></div>
       </div>
     </section>
 
   </div> <!-- /.wrap -->
 
-  <!-- faixa final e copyright -->
   <div class="copyright-band" role="contentinfo">
     © 2025 — Todos os direitos reservados a Workshop “Antes de virar o ano. Quero estar em paz comigo mesmo.”
   </div>
 
- 
 
-  <!-- contagem e botão WhatsApp -->
+
+  <!-- contagem e whatsapp -->
   <div class="countdown-float" id="countdown" role="status" aria-live="polite">
     <div style="font-size:12px;opacity:.95">Próximo encontro</div>
     <div class="time" id="cd-time">-- dias — --:--:--</div>
