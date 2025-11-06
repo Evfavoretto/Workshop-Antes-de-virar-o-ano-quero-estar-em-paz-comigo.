@@ -89,30 +89,27 @@
   .hero p{color:var(--muted);max-width:860px;margin:12px auto 0;line-height:1.6}
 
   /* ========== SECTION FLAGS (full-bleed behind titles) ========== */
-  section{position:relative;padding:64px 0}
-  .section-flag{
-  position:absolute; left:50%; transform:translateX(-50%);
-  width:100vw; height:var(--section-bleed-height); top:0;
-  background:var(--blue-dark); z-index:0;
-}
-.section-title{
-  position:relative; z-index:2; margin-top:4px; text-align:center; color:#fff;
-  font-family:'Playfair Display',serif; font-size:20px; padding:8px 12px; max-width:var(--maxw);
-  margin-left:auto;margin-right:auto;
+  /* Remove todas as faixas padrão */
+.section-flag {
+  display: none;
 }
 
-/* FAIXAS ESPECÍFICAS — azul forte em "As três noites" e "Objetivos" */
-#noites .section-flag,
-#objetivos .section-flag {
+/* Cria uma faixa azul forte só em "As três noites" */
+#noites {
   background: var(--blue-deep); /* azul forte */
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
-  .section-title{
-    position:relative; z-index:2; margin-top:4px; text-align:center; color:#fff;
-    font-family:'Playfair Display',serif; font-size:20px; padding:8px 12px; max-width:var(--maxw);
-    margin-left:auto;margin-right:auto;
-  }
 
-  .content-wide{max-width:1150px;margin:28px auto;padding:0 18px}
+#noites .section-title {
+  color: #fff; /* texto branco */
+}
+
+#noites .card {
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
 
   /* CARDS / GRIDS */
   .grid-3{display:grid;gap:18px}
