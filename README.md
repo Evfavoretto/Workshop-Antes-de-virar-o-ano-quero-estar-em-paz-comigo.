@@ -319,7 +319,7 @@
 
   <!-- CTA fixo mobile -->
   <div class="sticky-cta" aria-hidden="false">
-    <a class="btn btn-primary" href="https://wa.me/5549998110445?text=Quero%20participar%20do%20workshop" target="_blank" rel="noopener">Quero participar</a>
+    <a class="btn btn-primary" href="[https://wa.me/5549998110445?text=Quero%20participar%20do%20workshop](https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp)" target="_blank" rel="noopener">Quero participar</a>
   </div>
 
   <!-- WhatsApp flutuante -->
