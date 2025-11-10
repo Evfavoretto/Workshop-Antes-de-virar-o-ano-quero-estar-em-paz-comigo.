@@ -1,4 +1,3 @@
-
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -19,7 +18,6 @@
       --gutter:22px;
       --max-w:1200px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
@@ -45,77 +43,40 @@
     .page-header,
     .jekyll-header,
     .gh-header,
-    .gh-title {
-      display:none !important;
-    }
-    .markdown-body { padding-top:0 !important; }
+    .gh-title {display:none!important}
+    .markdown-body{padding-top:0!important}
 
     .top-bar{
       position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
       background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center;
       padding:0 12px;font-weight:800;font-size:14px;z-index:9999;box-shadow:0 6px 18px rgba(0,0,0,.08);
     }
-
     .site-wrap{max-width:var(--max-w);margin:0 auto;padding:0 16px}
 
     .split{
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:var(--gutter);
-      align-items:stretch;
-      max-width:var(--max-w);
-      padding-top:12px;
+      margin:0 auto;display:grid;grid-template-columns:1fr;
+      gap:var(--gutter);align-items:stretch;max-width:var(--max-w);padding-top:12px;
     }
-
     .split .left{
-      background:linear-gradient(180deg,var(--green-900),var(--green-800));
-      color:#fff;
-      border-radius:12px;
-      position:relative;
-      overflow:hidden;
-      min-height:240px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:22px 14px;
+      background:linear-gradient(180deg,var(--green-900),var(--green-800));color:#fff;
+      border-radius:12px;position:relative;overflow:hidden;min-height:240px;
+      display:flex;align-items:center;justify-content:center;padding:22px 14px;
     }
-    .left .left-inner{
-      width:100%;
-      max-width:280px;
-      text-align:center;
-    }
+    .left .left-inner{width:100%;max-width:280px;text-align:center}
     .left .left-inner h3{font-size:20px;font-weight:900;margin-bottom:8px}
     .left .left-inner p{font-size:14px;color:rgba(255,255,255,0.95);line-height:1.4}
     .left::before{
-      content:"";
-      position:absolute;inset:0;
+      content:"";position:absolute;inset:0;
       background-image:url('WhatsApp Image 2025-11-10 at 09.08.40.jpeg');
-      background-size:cover;background-position:center;
-      opacity:0.06;z-index:0;transform:scale(1.02);
+      background-size:cover;background-position:center;opacity:0.06;z-index:0;transform:scale(1.02);
       filter:contrast(.95)saturate(.8);
     }
 
-    .split .right{background:transparent;padding:0}
-
-    .hero{
-      background:transparent;
-      padding:28px 16px 18px;
-      position:relative;
-      z-index:2;
-      text-align:left;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
+    .hero{background:transparent;padding:28px 16px 18px;z-index:2;text-align:left;display:flex;flex-direction:column;justify-content:center}
     .hero h1{font-size:clamp(20px,4.4vw,30px);font-weight:900;color:var(--green-900);margin-bottom:12px}
     .hero p.lead{font-size:15px;color:#244b2e;margin-bottom:18px;max-width:780px}
-
     .cta{display:flex;align-items:center;position:relative}
-    .btn{
-      display:inline-block;border-radius:999px;padding:12px 22px;font-weight:800;font-size:15px;cursor:pointer;
-      transition:transform .12s,box-shadow .12s;
-    }
+    .btn{display:inline-block;border-radius:999px;padding:12px 22px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .12s,box-shadow .12s}
     .btn-primary{background:var(--yellow-canary);color:#111;box-shadow:0 12px 30px rgba(0,0,0,.12)}
     .btn-primary:hover{transform:translateY(-2px)}
 
@@ -133,7 +94,9 @@
     .night p{color:#333;font-size:14px;line-height:1.5}
 
     #investimento{background:var(--green-soft);text-align:center;padding:36px 16px;border-radius:10px}
-    .price{font-size:22px;font-weight:900;color:var(--green-900);margin-bottom:8px}
+    .price{font-size:26px;font-weight:900;color:var(--green-900);margin-bottom:10px}
+    .price span{text-decoration:line-through;color:#a22}
+    .price-note{font-size:18px;font-weight:800;color:var(--green-900);margin-bottom:18px}
 
     .faq-wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
     .faq-item{background:#fff;border:1px solid var(--stone-200);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
@@ -155,13 +118,12 @@
     .footer{background:var(--green-800);color:#e6f3ea;text-align:center;padding:16px 12px;font-size:13px;margin-top:18px;border-radius:8px}
 
     @media(min-width:880px){
-      .split{grid-template-columns:var(--left-w) 1fr;gap:var(--gutter);align-items:stretch;}
-      .hero .cta{margin-top:8px;display:flex}
-      .hero .btn-primary{position:relative;left:60px;box-shadow:0 18px 36px rgba(0,0,0,.12);}
+      .split{grid-template-columns:var(--left-w) 1fr;gap:var(--gutter);align-items:stretch}
+      .hero .btn-primary{position:relative;left:60px;box-shadow:0 18px 36px rgba(0,0,0,.12)}
       .left{border-radius:12px 0 12px 12px}
     }
     @media(max-width:879px){
-      .left{border-radius:10px;min-height:180px;padding:18px;}
+      .left{border-radius:10px;min-height:180px;padding:18px}
       .btn-primary{width:100%}
       .sticky-cta{display:flex}
       .whats-float{bottom:72px}
@@ -173,7 +135,7 @@
 
   <div class="site-wrap">
 
-    <div class="split" role="region" aria-label="Topo dividido">
+    <div class="split">
       <div class="left" aria-hidden="true">
         <div class="left-inner">
           <h3>Antes de virar o ano, quero estar em paz comigo</h3>
@@ -183,12 +145,10 @@
 
       <div class="right">
         <div class="hero">
-          <div class="hero-inner">
-            <h1>Encerre o ciclo com leveza</h1>
-            <p class="lead">Três noites de vivência para reconhecer, soltar e recomeçar — preparando 2026 com paz interior.</p>
-            <div class="cta">
-              <a class="btn btn-primary" href="https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp" target="_blank" rel="noopener">Quero participar</a>
-            </div>
+          <h1>Encerre o ciclo com leveza</h1>
+          <p class="lead">Três noites de vivência para reconhecer, soltar e recomeçar — preparando 2026 com paz interior.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp" target="_blank" rel="noopener">Quero participar</a>
           </div>
         </div>
 
@@ -206,45 +166,27 @@
     <section>
       <h2 class="title">As 3 Noites</h2>
       <div class="nights">
-        <div class="night">
-          <h3>1ª Noite — O peso que ainda carrego</h3>
-          <p>Reconhecer mágoas, culpas e cobranças que já não cabem mais. Dar nome é o primeiro passo para libertar.</p>
-        </div>
-        <div class="night">
-          <h3>2ª Noite — Quando soltar é cuidar</h3>
-          <p>Práticas guiadas de soltura e autocuidado: respiração, escrita terapêutica e rituais de liberação.</p>
-        </div>
-        <div class="night">
-          <h3>3ª Noite — O recomeço que nasce da paz</h3>
-          <p>Ritual prático para transformar o vivido em sabedoria e escolher intenções para 2026.</p>
-        </div>
+        <div class="night"><h3>1ª Noite — O peso que ainda carrego</h3><p>Reconhecer mágoas, culpas e cobranças que já não cabem mais. Dar nome é o primeiro passo para libertar.</p></div>
+        <div class="night"><h3>2ª Noite — Quando soltar é cuidar</h3><p>Práticas guiadas de soltura e autocuidado: respiração, escrita terapêutica e rituais de liberação.</p></div>
+        <div class="night"><h3>3ª Noite — O recomeço que nasce da paz</h3><p>Ritual prático para transformar o vivido em sabedoria e escolher intenções para 2026.</p></div>
       </div>
     </section>
 
     <section id="investimento">
       <h2 class="title">Investimento</h2>
-      <div class="price">Gratuito</div>
-      <p class="price-note">Vivência aberta — vagas limitadas. Garanta sua vaga pelo WhatsApp.</p>
-      <div style="margin-top:10px">
-        <a class="btn btn-primary" href="https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp" target="_blank" rel="noopener">Garantir minha vaga</a>
+      <div class="price">
+        <span>R$ 499,00</span> &nbsp;<span style="text-decoration:none;color:#c62828;font-size:30px;">por R$ 0,00</span>
       </div>
+      <div class="price-note"><strong>Gratuito</strong> — vivência aberta, vagas limitadas.</div>
+      <a class="btn btn-primary" href="https://chat.whatsapp.com/CeXf6hjhBziAzvXl9HGFFp" target="_blank" rel="noopener">Garantir minha vaga gratuita</a>
     </section>
 
     <section id="faq">
       <h2 class="title">Perguntas & Respostas</h2>
       <div class="faq-wrap">
-        <div class="faq-item">
-          <button class="faq-q" type="button">Para quem é este workshop?</button>
-          <div class="faq-a"><p>Para qualquer pessoa que deseje concluir o ano com mais presença e leveza — sem necessidade de experiência prévia.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button">Qual a duração de cada encontro?</button>
-          <div class="faq-a"><p>Cada encontro tem entre 90 e 120 minutos: espaço para práticas, integrações e perguntas.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button">Vou precisar falar em grupo?</button>
-          <div class="faq-a"><p>Não é obrigatório. Partilha é voluntária; há práticas individuais.</p></div>
-        </div>
+        <div class="faq-item"><button class="faq-q" type="button">Para quem é este workshop?</button><div class="faq-a"><p>Para qualquer pessoa que deseje concluir o ano com mais presença e leveza — sem necessidade de experiência prévia.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Qual a duração de cada encontro?</button><div class="faq-a"><p>Cada encontro tem entre 90 e 120 minutos: espaço para práticas, integrações e perguntas.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Vou precisar falar em grupo?</button><div class="faq-a"><p>Não é obrigatório. Partilha é voluntária; há práticas individuais.</p></div></div>
       </div>
     </section>
 
@@ -271,17 +213,14 @@
   <script>
     document.getElementById('ano').textContent = new Date().getFullYear();
     (function(){
-      const items = Array.from(document.querySelectorAll('.faq-item'));
-      items.forEach(item => {
-        const btn = item.querySelector('.faq-q');
-        btn.setAttribute('role','button');
-        btn.setAttribute('tabindex','0');
-        btn.addEventListener('click', () => {
-          items.forEach(i => { if(i !== item) i.classList.remove('open'); });
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item=>{
+        const btn=item.querySelector('.faq-q');
+        btn.addEventListener('click',()=>{
+          items.forEach(i=>{if(i!==item)i.classList.remove('open')});
           item.classList.toggle('open');
-          if(item.classList.contains('open')) setTimeout(()=> item.scrollIntoView({behavior:'smooth',block:'center'}),120);
+          if(item.classList.contains('open')) setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'center'}),120);
         });
-        btn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}});
       });
     })();
   </script>
